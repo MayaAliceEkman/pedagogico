@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste do Perfil Comportamental</title>
+  <style>
+    :root {
+      --aguia: #e67e22;
+      --gato: #27ae60;
+      --lobo: #3498db;
+      --tubarao: #c0392b;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --border: #e0e6ed;
+      --primary: #2c3e50;
+      --accent: #3498db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding: 28px 20px;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(44, 62, 80, 0.25);
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .intro {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .intro p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro strong {
+      color: var(--text);
+    }
+
+    .progress-wrap {
+      margin-bottom: 24px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      display: none;
+    }
+
+    .progress-wrap.visible {
+      display: block;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #e8eef4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #2980b9);
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.35s ease;
+    }
+
+    .question-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    .question-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .question-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .question-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fafbfc;
+    }
+
+    .option:hover {
+      border-color: var(--accent);
+      background: #f0f7fc;
+    }
+
+    .option.selected {
+      border-color: var(--accent);
+      background: #e8f4fc;
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .option input {
+      display: none;
+    }
+
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .option-letter.I { background: var(--aguia); }
+    .option-letter.C { background: var(--gato); }
+    .option-letter.O { background: var(--lobo); }
+    .option-letter.A { background: var(--tubarao); }
+
+    .option-text {
+      font-size: 0.98rem;
+      flex: 1;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(44, 62, 80, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(44, 62, 80, 0.35);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Results */
+    #results {
+      display: none;
+    }
+
+    #results.visible {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .results-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .score-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      border: 2px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .score-card.dominant {
+      transform: scale(1.04);
+      background: #fff4e6;
+      border-color: #f5a623;
+      border-width: 2px;
+      box-shadow: 0 8px 24px rgba(245, 166, 35, 0.25);
+    }
+
+    .score-card.aguia.dominant,
+    .score-card.gato.dominant,
+    .score-card.lobo.dominant,
+    .score-card.tubarao.dominant {
+      border-color: #f5a623;
+      background: #fff4e6;
+    }
+
+    .score-animal {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .score-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .score-letter {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .score-pct {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .score-card.aguia .score-pct { color: var(--aguia); }
+    .score-card.gato .score-pct { color: var(--gato); }
+    .score-card.lobo .score-pct { color: var(--lobo); }
+    .score-card.tubarao .score-pct { color: var(--tubarao); }
+
+    .score-count {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .dominant-banner {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .dominant-banner h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .dominant-banner p {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .profile-detail {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-left: 5px solid;
+    }
+
+    .profile-detail.aguia { border-left-color: var(--aguia); }
+    .profile-detail.gato { border-left-color: var(--gato); }
+    .profile-detail.lobo { border-left-color: var(--lobo); }
+    .profile-detail.tubarao { border-left-color: var(--tubarao); }
+
+    .profile-detail h3 {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-detail .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #fff;
+    }
+
+    .profile-detail.aguia .tag { background: var(--aguia); }
+    .profile-detail.gato .tag { background: var(--gato); }
+    .profile-detail.lobo .tag { background: var(--lobo); }
+    .profile-detail.tubarao .tag { background: var(--tubarao); }
+
+    .profile-detail .slogan {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-block h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .detail-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .detail-block li {
+      font-size: 0.92rem;
+      padding: 3px 0;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .detail-block li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .quote {
+      background: #f8f9fb;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-style: italic;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    #quiz {
+      display: block;
+    }
+
+    #quiz.hidden {
+      display: none;
+    }
+
+    .error-msg {
+      color: #c0392b;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Teste do Perfil Comportamental</h1>
+      <p>Baseado nos 4 Perfis Comportamentais de Ned Herrmann — Águia, Gato, Lobo e Tubarão</p>
+    </header>
+
+    <div class="intro" id="intro">
+      <p><strong>Como funciona:</strong> Em cada uma das 12 questões abaixo, escolha a alternativa que <strong>melhor descreve você</strong>.</p>
+      <p>Ao final, o resultado mostra o percentual de cada perfil (I = Águia, C = Gato, O = Lobo, A = Tubarão) e a interpretação completa do seu perfil predominante.</p>
+      <p class="quote" style="margin: 16px 0 0;">“Ninguém é igual a ninguém. Todo o ser humano é um estranho ímpar.” — Carlos Drummond de Andrade</p>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-label">
+        <span>Progresso</span>
+        <span id="progressText">0 / 12</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div id="quiz">
+      <!-- Questions will be injected by JS -->
+    </div>
+
+    <div class="actions" id="quizActions">
+      <button class="btn-primary" id="btnSubmit" disabled>Ver meu resultado</button>
+    </div>
+    <p class="error-msg" id="errorMsg">Por favor, responda todas as 12 questões antes de continuar.</p>
+
+    <div id="results">
+      <div class="results-header">
+        <h2>Seu Resultado</h2>
+        <p style="color: var(--muted);">Percentuais calculados com base nas 12 respostas (cada letra ÷ 12 × 100)</p>
+      </div>
+
+      <div class="scores-grid" id="scoresGrid"></div>
+
+      <div class="dominant-banner" id="dominantBanner"></div>
+
+      <div id="profilesDetail"></div>
+
+      <div class="actions">
+        <button class="btn-secondary" id="btnRestart">Refazer o teste</button>
+      </div>
+    </div>
+
+    <footer>
+      Adaptado de: Instituto Brasileiro de Coaching – IBC | Baseado no trabalho de Ned Herrmann (1922–1999)
+    </footer>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        num: 1,
+        text: "Eu sou...",
+        options: [
+          { letter: "A", text: "Persistente" },
+          { letter: "I", text: "Idealista" },
+          { letter: "C", text: "Meticuloso" },
+          { letter: "O", text: "Divertido" }
+        ]
+      },
+      {
+        num: 2,
+        text: "Eu gosto de...",
+        options: [
+          { letter: "O", text: "Organização" },
+          { letter: "I", text: "Revolução" },
+          { letter: "C", text: "Integração" },
+          { letter: "A", text: "Execução" }
+        ]
+      },
+      {
+        num: 3,
+        text: "Eu busco...",
+        options: [
+          { letter: "C", text: "Harmonia" },
+          { letter: "O", text: "Segurança" },
+          { letter: "I", text: "Liberdade" },
+          { letter: "A", text: "Praticidade" }
+        ]
+      },
+      {
+        num: 4,
+        text: "Eu prefiro...",
+        options: [
+          { letter: "I", text: "Escolher" },
+          { letter: "C", text: "Prosperar" },
+          { letter: "O", text: "Comemorar" },
+          { letter: "A", text: "Ter Autonomia" }
+        ]
+      },
+      {
+        num: 5,
+        text: "Minha melhor capacidade é...",
+        options: [
+          { letter: "C", text: "Regularidade" },
+          { letter: "O", text: "Colaboração" },
+          { letter: "I", text: "Adaptação" },
+          { letter: "A", text: "Liderança" }
+        ]
+      },
+      {
+        num: 6,
+        text: "Minha melhor qualidade é...",
+        options: [
+          { letter: "I", text: "Engenhosidade" },
+          { letter: "C", text: "Pontualidade" },
+          { letter: "O", text: "Cooperação" },
+          { letter: "A", text: "Foco" }
+        ]
+      },
+      {
+        num: 7,
+        text: "Minha maior competência é...",
+        options: [
+          { letter: "A", text: "Alta produtividade" },
+          { letter: "C", text: "Seguir um plano, uma rotina" },
+          { letter: "O", text: "Cultivar relacionamentos" },
+          { letter: "I", text: "Aceitar e promover mudanças" }
+        ]
+      },
+      {
+        num: 8,
+        text: "Meu maior diferencial é ser...",
+        options: [
+          { letter: "A", text: "Autossuficiente" },
+          { letter: "I", text: "Disruptivo" },
+          { letter: "C", text: "Comunicativo" },
+          { letter: "O", text: "Leal" }
+        ]
+      },
+      {
+        num: 9,
+        text: "Minha principal característica é...",
+        options: [
+          { letter: "I", text: "Ser Curioso" },
+          { letter: "A", text: "Vencer Desafios" },
+          { letter: "O", text: "Buscar Conhecimento" },
+          { letter: "C", text: "Buscar Harmonia" }
+        ]
+      },
+      {
+        num: 10,
+        text: "Diante das situações, procuro...",
+        options: [
+          { letter: "C", text: "Construir o consenso" },
+          { letter: "I", text: "Inovar e fazer diferente" },
+          { letter: "O", text: "Fazer da forma certa" },
+          { letter: "A", text: "Fazer do modo mais fácil" }
+        ]
+      },
+      {
+        num: 11,
+        text: "Diante da minha equipe...",
+        options: [
+          { letter: "I", text: "Incentivo a criatividade" },
+          { letter: "O", text: "Deixo claras as regras do jogo" },
+          { letter: "A", text: "Focalizo o aqui e agora" },
+          { letter: "C", text: "Incentivo a comunicação" }
+        ]
+      },
+      {
+        num: 12,
+        text: "Contribuo mais com a equipe...",
+        options: [
+          { letter: "O", text: "Organizando o trabalho" },
+          { letter: "C", text: "Delegando autoridade" },
+          { letter: "I", text: "Inspirando ideias" },
+          { letter: "A", text: "Cobrando por resultados" }
+        ]
+      }
+    ];
+
+    const PROFILES = {
+      I: {
+        key: "aguia",
+        name: "Águia",
+        emoji: "🦅",
+        slogan: "FAZER DIFERENTE",
+        comportamentos: ["Criativo", "Intuitivo", "Foco no futuro", "Distraído", "Curioso", "Informal e casual", "Flexível"],
+        pontosFortes: ["Disruptivo", "Antecipa o futuro", "Criatividade"],
+        valores: ["Criatividade", "Liberdade", "Inspira ideias"],
+        motivacoes: ["Liberdade de expressão", "Ausência de controles rígidos", "Trabalho descentralizado", "Liberdade para exceções", "Oportunidades para delegar"],
+        pontosMelhoria: ["Falta de atenção no agora", "Impaciência e rebeldia", "Defender o novo pelo novo"]
+      },
+      C: {
+        key: "gato",
+        name: "Gato",
+        emoji: "🐱",
+        slogan: "FAZER JUNTO",
+        comportamentos: ["Sensível", "Relacionamentos", "Atua em Times", "Tradicionalistas", "Contribuição", "Busca harmonia", "Delega autoridade"],
+        pontosFortes: ["Harmonia", "Dissemina cultura", "Comunicação aberta"],
+        valores: ["Felicidade", "Igualdade", "Cultura corporativa", "Pensa nos outros"],
+        motivacoes: ["Segurança", "Aceitação social", "Construir consenso", "Ser reconhecido", "Supervisão assistida", "Ambiente harmônico", "Trabalho em grupo"],
+        pontosMelhoria: ["Esconder conflitos", "Foco nos resultados", "Manipulador"]
+      },
+      O: {
+        key: "lobo",
+        name: "Lobo",
+        emoji: "🐺",
+        slogan: "FAZER CERTO",
+        comportamentos: ["Detalhista", "Organizado", "Estrategista", "Busca conhecimento", "Pontual", "Conservador", "Previsível"],
+        pontosFortes: ["Consistência", "Conformidade", "Qualidade", "Lealdade e segurança", "Responsabilidades", "Regras"],
+        valores: ["Ordem", "Controle"],
+        motivacoes: ["Certeza e compreensão", "Saber as regras", "Conhecimento específico", "Ausência de riscos e erros", "Ver o produto acabado", "Começo, meio e fim"],
+        pontosMelhoria: ["Dificuldades com mudanças", "Podem impedir o progresso", "Detalhistas e estruturados", "Demasiadamente sistêmicos"]
+      },
+      A: {
+        key: "tubarao",
+        name: "Tubarão",
+        emoji: "🦈",
+        slogan: "FAZER RÁPIDO",
+        comportamentos: ["Senso de urgência", "Ação e iniciativa", "Impulsivo e prático", "Vencer desafios", "Aqui e agora", "Autossuficiente", "Não gosta de delegar"],
+        pontosFortes: ["Fazer acontecer", "Parar com a burocracia", "Motivação"],
+        valores: ["Resultados"],
+        motivacoes: ["Liberdade para agir", "Individualista", "Controle de suas atividades", "Resolve as coisas do seu jeito", "Competição individual", "Variedade de atividades", "Não ter que repetir tarefas"],
+        pontosMelhoria: ["Envolvimento social", "Faz do modo mais fácil", "Relacionamento complicado"]
+      }
+    };
+
+    const answers = {};
+
+    function renderQuiz() {
+      const quizEl = document.getElementById("quiz");
+      quizEl.innerHTML = QUESTIONS.map(q => `
+        <div class="question-card" data-q="${q.num}">
+          <span class="question-num">Questão ${q.num} de 12</span>
+          <div class="question-text">${q.text}</div>
+          <div class="options">
+            ${q.options.map(opt => `
+              <label class="option" data-letter="${opt.letter}">
+                <input type="radio" name="q${q.num}" value="${opt.letter}">
+                <span class="option-letter ${opt.letter}">${opt.letter}</span>
+                <span class="option-text">${opt.text}</span>
+              </label>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+
+      document.querySelectorAll(".option").forEach(opt => {
+        opt.addEventListener("click", () => {
+          const card = opt.closest(".question-card");
+          const qNum = parseInt(card.dataset.q, 10);
+          const letter = opt.dataset.letter;
+
+          card.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+          opt.classList.add("selected");
+          opt.querySelector("input").checked = true;
+          answers[qNum] = letter;
+          updateProgress();
+        });
+      });
+    }
+
+    function updateProgress() {
+      const answered = Object.keys(answers).length;
+      const pct = (answered / 12) * 100;
+      document.getElementById("progressFill").style.width = pct + "%";
+      document.getElementById("progressText").textContent = answered + " / 12";
+      document.getElementById("progressWrap").classList.add("visible");
+      document.getElementById("btnSubmit").disabled = answered < 12;
+      document.getElementById("errorMsg").style.display = "none";
+    }
+
+    function calculateScores() {
+      const counts = { I: 0, C: 0, O: 0, A: 0 };
+      Object.values(answers).forEach(letter => {
+        if (counts[letter] !== undefined) counts[letter]++;
+      });
+      const percentages = {};
+      for (const letter of ["I", "C", "O", "A"]) {
+        percentages[letter] = Math.round((counts[letter] / 12) * 100);
+      }
+      return { counts, percentages };
+    }
+
+    function getDominant(percentages) {
+      let max = -1;
+      let dominant = [];
+      for (const letter of ["I", "C", "O", "A"]) {
+        if (percentages[letter] > max) {
+          max = percentages[letter];
+          dominant = [letter];
+        } else if (percentages[letter] === max) {
+          dominant.push(letter);
+        }
+      }
+      return dominant;
+    }
+
+    function renderResults() {
+      const { counts, percentages } = calculateScores();
+      const dominantLetters = getDominant(percentages);
+
+      // Scores grid
+      const order = ["I", "C", "O", "A"];
+      const grid = document.getElementById("scoresGrid");
+      grid.innerHTML = order.map(letter => {
+        const p = PROFILES[letter];
+        const isDom = dominantLetters.includes(letter);
+        return `
+          <div class="score-card ${p.key} ${isDom ? "dominant" : ""}">
+            <div class="score-animal">${p.emoji}</div>
+            <div class="score-name">${p.name}</div>
+            <div class="score-letter">${letter}</div>
+            <div class="score-pct">${percentages[letter]}%</div>
+            <div class="score-count">${counts[letter]} de 12 respostas</div>
+          </div>
+        `;
+      }).join("");
+
+      // Dominant banner
+      const banner = document.getElementById("dominantBanner");
+      if (dominantLetters.length === 1) {
+        const p = PROFILES[dominantLetters[0]];
+        banner.innerHTML = `
+          <h3>${p.emoji} Seu perfil predominante: ${p.name}</h3>
+          <p>${p.slogan} — ${percentages[dominantLetters[0]]}% das suas respostas</p>
+        `;
+      } else {
+        const names = dominantLetters.map(l => PROFILES[l].name).join(" e ");
+        banner.innerHTML = `
+          <h3>Perfis equilibrados: ${names}</h3>
+          <p>Você apresentou percentuais iguais nos perfis destacados. Isso indica flexibilidade comportamental.</p>
+        `;
+      }
+
+      // Profile details (show all, dominant first)
+      const detailEl = document.getElementById("profilesDetail");
+      const sorted = [...order].sort((a, b) => {
+        const aDom = dominantLetters.includes(a) ? 0 : 1;
+        const bDom = dominantLetters.includes(b) ? 0 : 1;
+        if (aDom !== bDom) return aDom - bDom;
+        return percentages[b] - percentages[a];
+      });
+
+      detailEl.innerHTML = sorted.map(letter => {
+        const p = PROFILES[letter];
+        const isDom = dominantLetters.includes(letter);
+        return `
+          <div class="profile-detail ${p.key}">
+            <h3>
+              ${p.emoji} ${p.name}
+              ${isDom ? '<span class="tag">Predominante</span>' : ""}
+            </h3>
+            <div class="slogan">${p.slogan}</div>
+            <div class="detail-grid">
+              <div class="detail-block">
+                <h4>Comportamentos</h4>
+                <ul>${p.comportamentos.map(i => `<li>${i}</li>`).join("")}</ul>
+              </div>
+              <div class="detail-block">
+                <h4>Pontos Fortes</h4>
+                <ul>${p.pontosFortes.map(i => `<li>${i}</li>`).join("")}</ul>
+              </div>
+              <div class="detail-block">
+                <h4>Valores</h4>
+                <ul>${p.valores.map(i => `<li>${i}</li>`).join("")}</ul>
+              </div>
+              <div class="detail-block">
+                <h4>Motivações</h4>
+                <ul>${p.motivacoes.map(i => `<li>${i}</li>`).join("")}</ul>
+              </div>
+              <div class="detail-block" style="grid-column: 1 / -1;">
+                <h4>Pontos de Melhoria</h4>
+                <ul>${p.pontosMelhoria.map(i => `<li>${i}</li>`).join("")}</ul>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Toggle visibility
+      document.getElementById("quiz").classList.add("hidden");
+      document.getElementById("quizActions").style.display = "none";
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("progressWrap").style.display = "none";
+      document.getElementById("results").classList.add("visible");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function restart() {
+      for (const key of Object.keys(answers)) delete answers[key];
+      document.getElementById("results").classList.remove("visible");
+      document.getElementById("quiz").classList.remove("hidden");
+      document.getElementById("quizActions").style.display = "flex";
+      document.getElementById("intro").style.display = "block";
+      document.getElementById("progressWrap").classList.remove("visible");
+      document.getElementById("progressFill").style.width = "0%";
+      document.getElementById("progressText").textContent = "0 / 12";
+      document.getElementById("btnSubmit").disabled = true;
+      document.getElementById("errorMsg").style.display = "none";
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.getElementById("btnSubmit").addEventListener("click", () => {
+      if (Object.keys(answers).length < 12) {
+        document.getElementById("errorMsg").style.display = "block";
+        return;
+      }
+      renderResults();
+    });
+
+    document.getElementById("btnRestart").addEventListener("click", restart);
+
+    // Init
+    renderQuiz();
+  </script>
+</body>
+</html>
