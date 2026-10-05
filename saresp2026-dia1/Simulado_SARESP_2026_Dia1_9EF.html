@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado SARESP 2026 – 9º ano | 1º dia</title>
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5c6670;
+  --border: #e5e7eb;
+  --accent: #1e3a5f;
+  --accent-soft: #e8eef5;
+  --lp: #1e3a5f;
+  --mat: #0f5c4c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 15.5px;
+}
+.header {
+  background: var(--accent);
+  color: #fff;
+  padding: 1.6rem 1.2rem 1.3rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+.header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; }
+.header .sub { opacity: .9; font-size: .95rem; margin-top: .2rem; }
+.header .meta {
+  margin-top: .55rem;
+  font-size: .8rem;
+  opacity: .8;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: .65rem .8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  justify-content: center;
+  position: sticky;
+  top: 92px;
+  z-index: 90;
+  box-shadow: 0 1px 6px rgba(0,0,0,.04);
+}
+.nav a {
+  width: 2rem; height: 2rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: .75rem;
+  font-weight: 600;
+  transition: .15s;
+}
+.nav a:hover { background: var(--accent); color: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 1.4rem 1rem 3.5rem; }
+.instructions {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1.4rem;
+  font-size: .9rem;
+  color: #78350f;
+}
+.section {
+  margin: 1.8rem 0 1rem;
+  padding: .55rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.section.lp { background: var(--lp); }
+.section.mat { background: var(--mat); }
+.q {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.15rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.q-h {
+  display: flex;
+  gap: .75rem;
+  padding: 1rem 1.1rem .5rem;
+  align-items: flex-start;
+}
+.q-n {
+  flex-shrink: 0;
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.q-t { flex: 1; font-size: .95rem; }
+.q-t p { margin-bottom: .45rem; }
+.q-t strong { color: var(--accent); }
+.apoio {
+  background: #f8fafc;
+  border-left: 3px solid #94a3b8;
+  padding: .75rem .95rem;
+  margin: .55rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: .9rem;
+  color: #334155;
+}
+.apoio .fonte { display: block; margin-top: .4rem; font-size: .75rem; color: var(--muted); font-style: italic; }
+.fig {
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  margin: .6rem 0;
+  font-size: .85rem;
+  color: var(--muted);
+  text-align: center;
+}
+.opts { padding: .3rem 1.1rem 1rem; }
+.opt {
+  display: flex;
+  gap: .65rem;
+  padding: .55rem .7rem;
+  border-radius: 8px;
+  margin-bottom: .28rem;
+  align-items: flex-start;
+}
+.opt:hover { background: #f1f5f9; }
+.opt-l {
+  flex-shrink: 0;
+  width: 1.55rem; height: 1.55rem;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: .8rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.opt-t { flex: 1; font-size: .92rem; padding-top: .1rem; }
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: .6rem 0;
+  font-size: .88rem;
+}
+table.data th, table.data td {
+  border: 1px solid var(--border);
+  padding: .45rem .6rem;
+  text-align: left;
+}
+table.data th { background: #f1f5f9; font-weight: 600; }
+.footer {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  color: var(--muted);
+  font-size: .8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+@media print {
+  .header, .nav, .instructions { display: none; }
+  .q { break-inside: avoid; box-shadow: none; }
+}
+@media (max-width: 560px) {
+  .header h1 { font-size: 1.15rem; }
+  .nav { top: 100px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Simulado SARESP 2026</h1>
+  <div class="sub">9º ano do Ensino Fundamental · 1º dia</div>
+  <div class="meta">
+    <span>Língua Portuguesa e Matemática</span>
+    <span>48 questões</span>
+  </div>
+</header>
+
+<nav class="nav" id="nav">
+<a href="#q1">1</a>
+<a href="#q2">2</a>
+<a href="#q3">3</a>
+<a href="#q4">4</a>
+<a href="#q5">5</a>
+<a href="#q6">6</a>
+<a href="#q7">7</a>
+<a href="#q8">8</a>
+<a href="#q9">9</a>
+<a href="#q10">10</a>
+<a href="#q11">11</a>
+<a href="#q12">12</a>
+<a href="#q13">13</a>
+<a href="#q14">14</a>
+<a href="#q15">15</a>
+<a href="#q16">16</a>
+<a href="#q17">17</a>
+<a href="#q18">18</a>
+<a href="#q19">19</a>
+<a href="#q20">20</a>
+<a href="#q21">21</a>
+<a href="#q22">22</a>
+<a href="#q23">23</a>
+<a href="#q24">24</a>
+<a href="#q25">25</a>
+<a href="#q26">26</a>
+<a href="#q27">27</a>
+<a href="#q28">28</a>
+<a href="#q29">29</a>
+<a href="#q30">30</a>
+<a href="#q31">31</a>
+<a href="#q32">32</a>
+<a href="#q33">33</a>
+<a href="#q34">34</a>
+<a href="#q35">35</a>
+<a href="#q36">36</a>
+<a href="#q37">37</a>
+<a href="#q38">38</a>
+<a href="#q39">39</a>
+<a href="#q40">40</a>
+<a href="#q41">41</a>
+<a href="#q42">42</a>
+<a href="#q43">43</a>
+<a href="#q44">44</a>
+<a href="#q45">45</a>
+<a href="#q46">46</a>
+<a href="#q47">47</a>
+<a href="#q48">48</a>
+
+</nav>
+
+<div class="container">
+
+<div class="instructions">
+  <strong>Instruções:</strong> Leia com atenção cada questão. As respostas devem ser marcadas <strong>apenas no gabarito impresso</strong> (não neste dispositivo). Use a navegação acima para ir direto a qualquer questão.
+</div>
+
+<!-- ========== BLOCO 1 LP ========== -->
+<div class="section lp">BLOCO 1 · LÍNGUA PORTUGUESA</div>
+
+<div class="q" id="q1">
+  <div class="q-h">
+    <div class="q-n">1</div>
+    <div class="q-t">
+      <p><strong>Leia o cartaz para responder à questão.</strong></p>
+      <div class="fig">[Cartaz da campanha “Conecte-se Ao Que Importa”: ilustração de família (homem, mulher e criança) cada um olhando o próprio celular, sem interagir. Texto: “A conversa em casa pode passar dos 140 caracteres.”]</div>
+      <div class="apoio">
+        O objetivo da campanha “Conecte-se Ao Que Importa” é conscientizar a sociedade sobre a importância de os pais darem mais atenção aos seus filhos e combaterem o excesso do uso de aparelhos eletrônicos e das redes sociais tanto por eles quanto pelas crianças e adolescentes.
+        <span class="fonte">Disponível em: encurtador.com.br. Acesso em: 12 dez. 2024. Adaptado.</span>
+      </div>
+      <p><strong>O cartaz possui elementos que reforçam o objetivo da campanha “Conecte-se Ao Que Importa”, dentre eles destaca-se</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">a utilização de letras que parecem ter sido escritas a mão em tamanho grande.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">o uso de cores vibrantes que destacam algumas palavras e aparelhos celulares.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">a representação de uma família usando celulares sem interagir uns com os outros.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">o modo consciente de como uma provável família utiliza seus aparelhos celulares.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q2">
+  <div class="q-h">
+    <div class="q-n">2</div>
+    <div class="q-t">
+      <div class="apoio">A cidade nunca dorme.<br>Seus olhos de néon piscam para quem passa, prometendo tudo, entregando o que o bolso permite.</div>
+      <p><strong>A expressão “olhos de néon” no poema é uma</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">comparação que une as luzes às estrelas do céu.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">hipérbole que exagera o brilho das luzes das ruas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">personificação que atribui à cidade a capacidade de olhar.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">metáfora que representa o silêncio das noites urbanas.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q3">
+  <div class="q-h">
+    <div class="q-n">3</div>
+    <div class="q-t">
+      <div class="apoio">A luz azul emitida por telas de celulares e computadores interfere na produção de melatonina, o hormônio responsável por sinalizar ao organismo que está na hora de dormir. Com isso, o uso prolongado de dispositivos eletrônicos à noite pode dificultar o início e a qualidade do sono. Especialistas recomendam evitar essas telas ao menos uma hora antes de deitar.</div>
+      <p><strong>O texto tem como objetivo principal</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">criticar o uso excessivo de celulares pelos jovens.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">explicar como a luz azul prejudica a visão humana.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">informar sobre os efeitos das telas no sono e recomendar uma mudança de hábito.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">defender que aparelhos eletrônicos sejam usados apenas durante o dia.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q4">
+  <div class="q-h">
+    <div class="q-n">4</div>
+    <div class="q-t">
+      <p><strong>Leia o texto para responder às questões 04 e 05.</strong></p>
+      <div class="apoio">
+        <strong>Felicidade</strong><br><br>
+        Outro dia, falando na vida do caboclo nordestino, eu disse aqui que ele não era infeliz. Ou não se sente infeliz, o que dá no mesmo. Mas é preciso compreender quanto varia o conceito de “felicidade” entre o homem urbano e essa variedade de brasileiro rural. Para o homem da cidade, ser feliz se traduz em “ter coisas”: ter apartamento, rádio, geladeira, televisão, bicicleta, automóvel. Quanto mais engenhocas mecânicas possuir, mais feliz se presume. Para isso se escraviza, trabalha dia e noite; e se gaba de feliz. O homem daqui, seu conceito de felicidade é muito mais subjetivo: ser feliz não é ter coisas; ser feliz é ser livre, não precisar de trabalhar. E, mormente, não trabalhar obrigado. Trabalhar à vontade do corpo, quando há necessidade inadiável. Tipicamente, os três dias de jornal por semana que o morador deve à fazenda, segundo costume, são chamados “a sujeição”. E o melhor patrão do mundo não é o que paga mais, é o que não exige sujeição. E a situação de “meeiro” é ideal, não porque permite um maior desafogo econômico – o que nem sempre acontece, mas sim porque “meeiro” não é “sujeito”.<br><br>
+        A gente entra na casa de um deles: é de taipa, sem reboco, o chão de terra batida (sempre muito bem varrida, tanta a casa quanto os terreiros). Uma sala, onde dormem os homens, a camarinha do casal ou das moças, o minúsculo puxado da cozinha, o fogão de barro, armado num jirau de varas. Móveis, às vezes, uma mesa pequena, dois tamboretes. Alguns possuem um baú; porém a maioria guarda os panos de uso comum num caixote de querosene. No fogão, as panelas de barro, duas no máximo, a lata de coar café, a chocolateira de ferver água. Noutro caixote trepado à parede, algumas colheres, uma faca, raramente um garfo; dois pratos de folha ou de ágata, duas tigelinhas de louça. Numa forquilha, o pote de água com caneco de folha, areado como prata. Nos esteios das paredes, uma rede para cada pessoa. E pronto, está ali toda mobília. Pode haver afluência de dinheiro: há anos em que o legume se colhe em quantidade, em que o algodão dá muito. Mas nunca ocorreria, a eles, usar da abundância para a compra de objetos domésticos — mesas, cadeiras, camas, relógio de parede. Uma dona de casa mais ambiciosa pode aspirar a uma máquina de costura. Raramente a consegue. E hoje está se generalizando o uso da máquina de moer — mas porque dispensa o trabalho do pilão, muito mais pesado. [...]
+        <span class="fonte">Disponível em: cronicabrasileira.org.br</span>
+      </div>
+      <p><strong>Com base no texto, pode-se concluir que ele</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">apresenta fatos noticiosos sobre a vida do homem nordestino, sem apresentar opinião pessoal.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">descreve o cotidiano rural de forma objetiva, com foco em dados e estatísticas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">mistura observações subjetivas e fatos cotidianos, refletindo sobre diferentes modos de viver.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">utiliza linguagem formal e técnica para debater problemas econômicos do campo.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q5">
+  <div class="q-h">
+    <div class="q-n">5</div>
+    <div class="q-t">
+      <p><strong>Com base no texto, infere-se que</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">o homem da cidade acredita que a felicidade depende da quantidade de bens que possui.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">o homem do campo acha que não precisa de nada para ser feliz, nem liberdade nem trabalho.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">o homem da cidade acredita que não trabalhar é sinal de infelicidade e desvalorização.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">o homem do campo quer ter muitos bens, mas sem precisar de esforço para isso.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q6">
+  <div class="q-h">
+    <div class="q-n">6</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>A Geração Z e o desafio da atenção sustentada</strong><br><br>
+        Uma pesquisa recente da Universidade X revelou um dado preocupante: jovens da Geração Z (nascidos entre meados dos anos 1990 e o início dos anos 2010) apresentam uma capacidade de atenção sustentada significativamente menor em comparação com gerações anteriores. Os pesquisadores atribuem esse fenômeno a diversos fatores, incluindo a superexposição a estímulos digitais rápidos e fragmentados, como vídeos curtos, posts em redes sociais e notificações constantes.<br><br>
+        A habilidade de manter o foco por períodos prolongados é crucial para diversas atividades, desde a leitura aprofundada e o estudo concentrado até a realização de tarefas complexas no ambiente de trabalho. A dificuldade em sustentar a atenção pode impactar negativamente o desempenho acadêmico, a produtividade profissional e até mesmo a capacidade de construir relacionamentos interpessoais mais profundos, que exigem escuta ativa e engajamento contínuo.<br><br>
+        Embora a tecnologia ofereça inúmeras ferramentas e recursos, o estudo aponta para a necessidade de desenvolver estratégias que ajudem os jovens a cultivar a atenção plena e a concentração. Isso inclui a prática de atividades que demandam foco, como a leitura de livros longos, a resolução de quebra-cabeças complexos e a participação em debates aprofundados. A conscientização sobre os efeitos da sobrecarga digital e a busca por um equilíbrio saudável entre o mundo online e offline também se mostram caminhos importantes para fortalecer a capacidade de atenção sustentada da Geração Z.
+      </div>
+      <p><strong>Qual das seguintes afirmações pode ser inferida do primeiro parágrafo do texto?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">A Geração Z possui mais acesso à tecnologia do que as gerações anteriores.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">A pesquisa da Universidade X entrevistou apenas jovens da Geração Z.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">A capacidade de manter a atenção por muito tempo é uma característica inata da Geração Z.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">A exposição constante a conteúdos digitais rápidos pode estar relacionada à dificuldade de concentração da Geração Z.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q7">
+  <div class="q-h">
+    <div class="q-n">7</div>
+    <div class="q-t">
+      <div class="apoio">Numa reportagem sobre cosméticos, a jornalista escreveu: “O produto é anunciado como ‘natural’ pela empresa, embora contenha dezessete ingredientes sintéticos em sua composição.”</div>
+      <p><strong>O uso das aspas na palavra “natural” tem como efeito</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">indicar que a palavra foi retirada de outro texto.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">destacar que o termo é técnico e específico da área.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">mostrar que a jornalista concorda com a classificação do produto.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">questionar a validade do termo usado pela empresa, sugerindo ironia.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q8">
+  <div class="q-h">
+    <div class="q-n">8</div>
+    <div class="q-t">
+      <div class="fig">[Tirinha – Armandinho: quadro 1 “NÃO JOGUE LIXO AQUI! PRECISAMOS SEPARAR O LIXO!” / quadro 2 “O MEIO AMBIENTE DEPENDE DA GENTE!” / quadro 3 “VOCÊS SEPARAM O LIXO ASSIM NA ESCOLA?” – Armandinho: “ESTOU EVOLUINDO: CASACO ‘C’, CALÇA ‘S’, MEIA ‘A’...”]</div>
+      <p><strong>Com base no desfecho da tirinha, é possível inferir que o menino</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">busca melhorar as regras de reciclagem com base em critérios objetivos.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">acha que separar o lixo corretamente é uma tarefa complicada e tenta improvisar.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">demonstra criatividade ao aplicar, de forma pessoal, o que aprendeu sobre reciclagem.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">repete o que aprendeu na escola para convencer o adulto.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q9">
+  <div class="q-h">
+    <div class="q-n">9</div>
+    <div class="q-t">
+      <div class="apoio">
+        De acordo com o estudo, em 2017, as mulheres receberam 70% dos rendimentos dos homens. A diferença ficou ainda maior do que em 2016, quando as trabalhadoras receberam o equivalente a 72% dos salários pagos aos homens. [...] No recorte do estudo que considera os 50% da população brasileira mais pobres, as mulheres tiveram renda equivalente a 75% da média obtida pelos homens neste segmento. Na classe mais rica [...] em 2017, as mulheres receberam o equivalente a 60% dos salários dos homens, enquanto em 2016, foram 69%. De acordo com o coordenador de campanha da Oxfam Brasil, Rafael Georges, a principal causa para os resultados desiguais no meio de trabalho vem da estrutura cultural brasileira e do preconceito. “O Brasil avança muito devagar no que tange a políticas de empoderamento feminino”, afirmou. “A mulher ainda é a figura que tem obrigação de ficar em casa para cuidar dos filhos e das tarefas domésticas”, completou.
+        <span class="fonte">Disponível em: correiobraziliense.com.br. Acesso em: 17 nov. 2019.</span>
+      </div>
+      <p><strong>A informação basilar do texto é que</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">as mulheres têm salários menores do que os dos homens.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">os homens trabalham menos e ganham menos que as mulheres.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">as mulheres ganham mais que os homens fazendo o mesmo trabalho.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">o Brasil é referência em políticas públicas para diminuir a desigualdade entre homens e mulheres.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q10">
+  <div class="q-h">
+    <div class="q-n">10</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Não conter desmatamento na Amazônia é “suicídio”, alerta especialista brasileiro na ONU</strong><br><br>
+        A Amazônia está se tornando uma savana e não combater completamente o desmatamento “será um suicídio”, alertou o cientista brasileiro Carlos Nobre. [...] Ele também disse que a estação seca está ficando mais longa em 60% da Amazônia. [...] Segundo dados oficiais, o desmatamento da Amazônia brasileira praticamente dobrou entre janeiro e agosto [...]. Se a savana chegar a ocupar de 50% a 60% do Brasil, o processo será “irreversível”, alertou Nobre [...]. Ele afirma que o cultivo de cacau, açaí e castanha na Amazônia ocupa somente 4 000 km² e gera 7 bilhões de reais, enquanto a atividade pecuária e o cultivo de soja em cinco estados amazônicos brasileiros ocupa 240 000 km² e gera 14 bilhões de reais. “Esses números são muito importantes. Esse potencial existe”. [...] Para o especialista, as bioindústrias têm o potencial de gerar desenvolvimento econômico respeitando o meio ambiente e tirando milhões de habitantes da Amazônia da pobreza.
+        <span class="fonte">Disponível em: g1.globo.com. Acesso em: 23 set. 2019.</span>
+      </div>
+      <p><strong>Qual a relação estabelecida pelos argumentos apresentados na notícia?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">O autor se apropria de dados que não comprovam a tese.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">As informações estatísticas justificam a tese defendida.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Nem todas as informações são comprovadas pelo autor.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">A economia atual é, segundo os argumentos, necessária.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q11">
+  <div class="q-h">
+    <div class="q-n">11</div>
+    <div class="q-t">
+      <div class="apoio">A maioria dos estudantes afirmou preferir aulas presenciais. No entanto, uma parcela significativa declarou ter aproveitado melhor o tempo de estudo durante o período de ensino remoto.</div>
+      <p><strong>A oração “No entanto, uma parcela significativa declarou...” pode ser substituída, sem alteração de sentido, por:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Portanto, uma parcela significativa declarou...</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Mesmo assim, uma parcela significativa declarou...</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Assim, uma parcela significativa declarou...</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Pois uma parcela significativa declarou...</div></div>
+  </div>
+</div>
+
+<div class="q" id="q12">
+  <div class="q-h">
+    <div class="q-n">12</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Se às vezes digo que as flores sorriem</strong><br><br>
+        Se às vezes digo que as flores sorriem<br>
+        E se eu disser que os rios cantam,<br>
+        Não é porque eu julgue que há sorrisos nas flores<br>
+        E cantos no correr dos rios...<br>
+        É porque assim faço mais sentir aos homens falsos<br>
+        A existência verdadeiramente real das flores e dos rios.<br><br>
+        Porque escrevo para eles me lerem sacrifico-me às vezes<br>
+        À sua estupidez de sentidos...<br>
+        Não concordo comigo, mas absolvo-me,<br>
+        Porque só sou essa cousa séria, um intérprete da Natureza,<br>
+        Porque há homens que não percebem a sua linguagem,<br>
+        Por ela não ser linguagem nenhuma.
+        <span class="fonte">PESSOA, Fernando. Alberto Caeiro: poemas completos. São Paulo: Saraiva, 2007. p. 52.</span>
+      </div>
+      <p><strong>No verso “Não concordo comigo, mas absolvo-me”, a conjunção <em>mas</em> estabelece qual relação de sentido?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">A finalidade do poema.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">A causa do canto dos rios.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">A oposição à ideia anterior.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">O lugar em que as flores sorriem.</div></div>
+  </div>
+</div>
+
+<!-- ========== BLOCO 2 MAT ========== -->
+<div class="section mat">BLOCO 2 · MATEMÁTICA</div>
+
+<div class="q" id="q13">
+  <div class="q-h">
+    <div class="q-n">13</div>
+    <div class="q-t">
+      <p><strong>Assinale a alternativa que apresenta a expressão da situação-problema a seguir:</strong></p>
+      <div class="apoio">“Adicionando 4 unidades ao triplo de um número, resulta em 40. Qual é esse número?”</div>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">4 + x³ = 40</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">4x + 3x = 40</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">40 = 4 + 3x</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">4 = 3x + 40</div></div>
+  </div>
+</div>
+
+<div class="q" id="q14">
+  <div class="q-h">
+    <div class="q-n">14</div>
+    <div class="q-t">
+      <p><strong>Analise a reta numérica a seguir e assinale a alternativa correta:</strong></p>
+      <div class="fig">[Reta numérica: 0 — 0,5 — 1,0 — 1,5 — 2,0]</div>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">1 ¾ está entre 1 e 1,5</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">7/3 está entre 0 e 1</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">1,49 está entre 1,5 e 2,0</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">2/3 está entre 0,5 e 1,0</div></div>
+  </div>
+</div>
+
+<div class="q" id="q15">
+  <div class="q-h">
+    <div class="q-n">15</div>
+    <div class="q-t">
+      <p>Uma pesquisa perguntou a 200 estudantes qual é o seu esporte favorito. O resultado está na tabela.</p>
+      <table class="data">
+        <tr><th>Esporte</th><th>Número de estudantes</th></tr>
+        <tr><td>Futebol</td><td>80</td></tr>
+        <tr><td>Vôlei</td><td>50</td></tr>
+        <tr><td>Basquete</td><td>40</td></tr>
+        <tr><td>Natação</td><td>30</td></tr>
+      </table>
+      <p><strong>Qual tipo de gráfico seria mais adequado para representar a proporção de cada esporte em relação ao total?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Gráfico de barras</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Gráfico de linhas</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Gráfico de setores (pizza)</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Tabela de frequências</div></div>
+  </div>
+</div>
+
+<div class="q" id="q16">
+  <div class="q-h">
+    <div class="q-n">16</div>
+    <div class="q-t">
+      <p>Na escola em que você estuda, o grêmio estudantil decidiu promover uma arrecadação de alimentos para doação. Cada aluno do 7º ano foi incentivado a contribuir com 5% do total de alimentos arrecadados.</p>
+      <p>Se a escola conseguiu arrecadar um total de 2000 kg de alimentos, <strong>qual seria o peso total de alimentos que um aluno do 7º ano deveria contribuir para atingir a meta estipulada pelo grêmio estudantil?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">150 kg.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">100 kg.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">50 kg.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">200 kg.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q17">
+  <div class="q-h">
+    <div class="q-n">17</div>
+    <div class="q-t">
+      <p>O volume de um cubo é a medida do espaço que ele ocupa. Ele pode ser obtido elevando a sua aresta ao cubo. <strong>Determine a medida da aresta do cubo abaixo, considerando que seu volume é de 512 cm³.</strong></p>
+      <div class="fig">[Cubo com arestas a, a, a — volume = 512 cm³]</div>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">7</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">8</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">64</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">170</div></div>
+  </div>
+</div>
+
+<div class="q" id="q18">
+  <div class="q-h">
+    <div class="q-n">18</div>
+    <div class="q-t">
+      <p>Uma impressora imprime 120 páginas em 8 minutos, mantendo a mesma velocidade.</p>
+      <p><strong>Quantas páginas imprimirá em 15 minutos?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">150</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">180</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">200</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">225</div></div>
+  </div>
+</div>
+
+<div class="q" id="q19">
+  <div class="q-h">
+    <div class="q-n">19</div>
+    <div class="q-t">
+      <p><strong>Calcule: 1/4 + 1/3</strong></p>
+      <p>O resultado é</p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">2/7</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">7/12</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">2/12</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">5/7</div></div>
+  </div>
+</div>
+
+<div class="q" id="q20">
+  <div class="q-h">
+    <div class="q-n">20</div>
+    <div class="q-t">
+      <p>Durante uma expedição, Marina registrou a variação da temperatura no local. No primeiro dia, a temperatura estava a −5 °C. No segundo dia, houve uma queda de 3 °C em relação ao primeiro dia, e no terceiro dia, a temperatura aumentou 4 °C em relação ao segundo dia.</p>
+      <p><strong>Qual foi a temperatura no terceiro dia?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">−8 °C.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">−12 °C.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">−4 °C.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">−6 °C.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q21">
+  <div class="q-h">
+    <div class="q-n">21</div>
+    <div class="q-t">
+      <p>Um corredor, em um dia de treino, partiu do início de uma estrada (quilômetro zero) e correu até o km 4. Depois, voltou até o km 2, onde havia um restaurante, para comer um lanche. Seguiu novamente até o km 5 e, em seguida, voltou para o início.</p>
+      <p><strong>No total, quantos quilômetros o homem correu?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">7 km</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">10 km</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">14 km</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">16 km</div></div>
+  </div>
+</div>
+
+<div class="q" id="q22">
+  <div class="q-h">
+    <div class="q-n">22</div>
+    <div class="q-t">
+      <p>Henrique desenhou no quadro o triângulo ABC isósceles de base BC.</p>
+      <div class="fig">[Triângulo isósceles ABC: ângulo em B = 100°, lados AB = AC, ângulo em A = x]</div>
+      <p><strong>De acordo com os dados da figura, o ângulo x mede</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">20°.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">25°.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">40°.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">50°.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q23">
+  <div class="q-h">
+    <div class="q-n">23</div>
+    <div class="q-t">
+      <p>Em uma obra, um engenheiro precisa calcular a altura de uma escada de emergência encostada perpendicularmente em uma parede. A escada forma um triângulo retângulo, com base medindo 6 metros e hipotenusa de 10 metros (a escada).</p>
+      <p><strong>Com base nessas informações, qual é a altura da parede que a escada alcança, e que corresponde ao cateto oposto ao ângulo formado com o chão?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">6 m.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">7 m.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">8 m.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">10 m.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q24">
+  <div class="q-h">
+    <div class="q-n">24</div>
+    <div class="q-t">
+      <p>O gerente de um hotel solicitou que os hóspedes, após a estadia, atribuíssem uma nota avaliativa sobre o nível de satisfação com a hospedagem.</p>
+      <p>As avaliações podiam ser positivas, nos níveis 1, 2 ou 3; podiam ser negativas, nos níveis −1, −2 ou −3 ou podiam ser indiferentes, nível 0. A tabela a seguir apresenta as respostas dos hóspedes que avaliaram o hotel no último fim de semana.</p>
+      <table class="data">
+        <tr><th>Avaliação (nota)</th><th>−3</th><th>−2</th><th>−1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+        <tr><th>Nº de hóspedes</th><td>5</td><td>3</td><td>7</td><td>2</td><td>10</td><td>13</td><td>16</td></tr>
+      </table>
+      <p><strong>A partir dos resultados apresentados na tabela, o gerente do hotel concluiu que o nível médio de satisfação dos hóspedes com o hotel é</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">0.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">1.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">2.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">3.</div></div>
+  </div>
+</div>
+
+<!-- ========== BLOCO 3 LP ========== -->
+<div class="section lp">BLOCO 3 · LÍNGUA PORTUGUESA</div>
+
+<div class="q" id="q25">
+  <div class="q-h">
+    <div class="q-n">25</div>
+    <div class="q-t">
+      <p><strong>Leia o cartaz de uma campanha publicitária para responder à questão.</strong></p>
+      <div class="fig">[Cartaz: foto de mulher negra, texto “Não esconda. Denuncie.” — rodapé: “Violência contra mulher também é problema seu. Se você sofre violência ou conhece alguma mulher que sofre procure a delegacia da mulher ou ligue 180.”]</div>
+      <p><strong>A finalidade do cartaz é</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">reforçar o combate à violência contra a mulher.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">orientar os homens a expor a violência doméstica.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">confortar as mulheres vítimas de agressão no lar.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">expor dados referentes à violência contra mulheres.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q26">
+  <div class="q-h">
+    <div class="q-n">26</div>
+    <div class="q-t">
+      <p>A manchete “Nenhuma evidência de que as vacinas impactam a fertilidade”, de Catalina Jaramillo, do Factcheck, possui como destaque para convencer o leitor:</p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">O uso do pronome “nenhuma” e do termo científico “evidência” demonstram a segurança das vacinas quanto à fertilidade.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">A presença de adjetivos utilizados como modalizadores discursivos para contribuir com a manipulação da informação.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">A utilização do pronome “que” para responder a uma dúvida da população a respeito da fertilidade após alguma vacinação.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">O destaque ao termo “vacinas” devido à baixa adesão de vacinação por campanhas de divulgação de notícias falsas.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q27">
+  <div class="q-h">
+    <div class="q-n">27</div>
+    <div class="q-t">
+      <div class="apoio">Os passageiros devem manter seus cintos de segurança afixados durante toda a viagem. O uso do celular em modo avião é obrigatório na decolagem e no pouso. Objetos de mão não podem obstruir as saídas de emergência.</div>
+      <p><strong>No trecho “Os passageiros devem manter seus cintos afixados”, o verbo “devem” é usado para</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">expressar obrigação ou norma a ser cumprida.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">indicar capacidade de realizar uma ação.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">indicar probabilidade de acontecimento.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">formular um pedido educado aos passageiros.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q28">
+  <div class="q-h">
+    <div class="q-n">28</div>
+    <div class="q-t">
+      <div class="apoio">Minha avó falava de Deus como quem fala de um vizinho antigo: com respeito, é claro, mas também com aquela intimidade de quem partilha o mesmo quintal.</div>
+      <p><strong>O efeito produzido pela comparação “como quem fala de um vizinho antigo” é o de</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">distância e formalidade na relação da avó com a religião.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">proximidade e familiaridade na forma como a avó vivia sua espiritualidade.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">crítica à superficialidade da fé da avó.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">saudade da avó e de sua forma de ver o mundo.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q29">
+  <div class="q-h">
+    <div class="q-n">29</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Novo cavalo-marinho-pigmeu é o primeiro do gênero na África</strong><br><br>
+        Nas águas agitadas e repletas de rochas, próximo à costa leste da África do Sul, pesquisadores descobriram uma nova espécie: um cavalo-marinho-pigmeu do tamanho de um grão de arroz.<br><br>
+        A descoberta os surpreendeu porque todas as sete espécies de cavalos-marinhos-pigmeus, exceto uma no Japão, habitam o Triângulo de Coral, uma região repleta de biodiversidade com mais de 5,1 milhões de quilômetros quadrados no sudoeste do Pacífico. A espécie recém-descoberta vive a oito mil quilômetros de distância, o primeiro cavalo-marinho-pigmeu visto em todo o Oceano Índico e no continente africano.<br><br>
+        “É como encontrar um canguru na Noruega”, diz Richard Smith [...] A nova espécie se parece um pouco com outros cavalos-marinhos-pigmeus, exceto pelo fato de ter espinhos no dorso com pontas afiadas [...]
+        <span class="fonte">MAIN, Douglas. National Geographic Brasil. Acesso em: 10 set. 2020.</span>
+      </div>
+      <p><strong>Segundo o texto, os pesquisadores ficaram surpresos por terem</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">descoberto cangurus na Noruega.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">encontrado nova espécie de cavalo-marinho.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">encontrado animal com espinhos sobre o dorso.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">descoberto espécie marinha distante do seu habitat natural.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q30">
+  <div class="q-h">
+    <div class="q-n">30</div>
+    <div class="q-t">
+      <div class="fig">[Ilustração: à esquerda “EGO” com um único homem no centro; à direita “ECO” com diversos animais e plantas ao redor de uma pessoa.]</div>
+      <p><strong>Ao utilizar a expressão “ego”, o autor</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">a relaciona, de maneira idêntica, ao termo “eco”.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">traz a reflexão sobre como o ser humano é individualista.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">afirma que o homem e os outros seres vivos estão na mesma escala.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">indica uma ideia de coletividade entre os seres vivos de todo o planeta Terra.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q31">
+  <div class="q-h">
+    <div class="q-n">31</div>
+    <div class="q-t">
+      <div class="apoio">A temperatura nas grandes cidades é, em média, de 3 a 5 graus mais alta do que nas áreas rurais. Isso ocorre porque o concreto e o asfalto absorvem calor durante o dia e o liberam à noite. Portanto, plantar árvores nas cidades é uma estratégia eficaz para reduzir esse fenômeno.</div>
+      <p><strong>No texto, a palavra “Portanto” estabelece uma relação de</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">conclusão, pois apresenta uma solução baseada nos dados anteriores.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">oposição entre o problema urbano e a solução proposta.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">dúvida sobre a eficácia de plantar árvores nas cidades.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">concessão entre a causa do calor e seus efeitos.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q32">
+  <div class="q-h">
+    <div class="q-n">32</div>
+    <div class="q-t">
+      <div class="apoio">Dona Raimunda não era de pedir favor a ninguém. Mas quando o bicho pegou — a geladeira quebrada, o botijão vazio e a menina com febre —, ela bateu na porta da vizinha sem pensar duas vezes. “Chegou a hora de abrir mão do orgulho”, disse para si mesma.</div>
+      <p><strong>A expressão “o bicho pegou” é característica de uma variedade linguística</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">histórica, pois é uma expressão usada apenas no século passado.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">informal/popular, presente na fala cotidiana de diferentes regiões.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">regional, exclusiva do Nordeste brasileiro.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">profissional, usada em contextos técnicos específicos.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q33">
+  <div class="q-h">
+    <div class="q-n">33</div>
+    <div class="q-t">
+      <div class="fig">[Tirinha Caramelo – “O que é o amor?”: sucessão de metáforas (tipo uma nuvem... estrondo de trovões... tempestade... e o amor sai toda molhado com um sorriso de ‘gordura-cheia’.)]</div>
+      <p><strong>Com base na tirinha, é possível inferir que, para Caramelo, o amor</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">demonstra fragilidade diante das emoções negativas, que o tornam menos resistente ao dia a dia.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">procura evitar sentimentos difíceis para manter leveza emocional ao longo da rotina diária.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">se prepara cuidadosamente para lidar com emoções difíceis que surgem ao longo do dia.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">revela sua natureza transitória, assim como a chuva que cai momentaneamente.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q34">
+  <div class="q-h">
+    <div class="q-n">34</div>
+    <div class="q-t">
+      <div class="fig">[Tirinha: três quadros — “PALAVRAS INSPIRAM...” / “EXPIRAM...” / “RESPIRAM...” — personagem lendo um livro.]</div>
+      <p><strong>A partir da leitura, é possível identificar que a tirinha</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">utiliza palavras e imagens com ritmo poético para apresentar uma notícia sobre leitura.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">provoca humor a partir de uma crítica direta aos meios de comunicação jornalísticos.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">constrói uma sequência narrativa que entretém e convida à reflexão sobre o poder da leitura.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">simula um conteúdo informativo para explicar o impacto da leitura no cotidiano do leitor.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q35">
+  <div class="q-h">
+    <div class="q-n">35</div>
+    <div class="q-t">
+      <div class="apoio">
+        Temo muito pôr em papel impresso a minha literatura. Essas ideias que me perseguem de pintar e fazer a vida escrava com os processos modernos do romance, e o grande amor que me inspira — pudera! — a gente negra, virá, eu prevejo, trazer-me amargos dissabores, descomposturas, que não sei se poderei me pôr acima delas. Enfim — “une grande vie est une pensée de la jeunesse réalisée par l’âge mûr”, mas até lá, meu Deus!, que de amarguras!, que de decepções!<br><br>
+        Ah! Se eu alcanço realizar essa ideia, que glória também! Enorme, extraordinária e — quem sabe? — uma fama europeia.<br><br>
+        Dirão que é o negrismo, que é um novo indianismo, e a proximidade simplesmente aparente das coisas turbara todos os espíritos em meu desfavor; e eu, pobre, sem fortes auxílios, com fracas amizades, como poderei viver perseguido, amargurado, debicado?<br><br>
+        Mas... e a glória e o imenso serviço que prestarei a minha gente e a parte da raça a que pertenço.<br><br>
+        Tentarei e seguirei avante. “Alea jacta est”.<br><br>
+        Se eu conseguir ler esta nota, daqui a vinte anos, satisfeito, terei orgulho de viver!<br>
+        Deus me ajude!
+        <span class="fonte">Lima Barreto. Disponível em: dominipublico.gov.br. Adaptado.</span>
+      </div>
+      <p><strong>O texto expressa as angústias e a determinação de Lima Barreto em criar uma literatura inovadora que valorize a população negra, enfrentando críticas e desafios. Frente às dificuldades, ele</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">expressa entusiasmo e ânimo por saber que seu trabalho é valorizado pela sociedade de sua época.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">acredita que será difícil convencer o povo negro de que é possível fazer literatura com suas dores.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">tem dúvidas, então considera esconder os problemas raciais nas entrelinhas de sua literatura.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">busca reconhecimento e contribuir com a comunidade negra pelo impacto que sua obra traria.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q36">
+  <div class="q-h">
+    <div class="q-n">36</div>
+    <div class="q-t">
+      <div class="apoio">
+        A pandemia do novo coronavírus pode ter efeitos colaterais além dos circunscritos à saúde na região amazônica. O correto foco das autoridades no controle da doença abre espaços para que oportunistas de plantão se sintam livres para grilar a terra pública e derrubar a floresta. [...]<br><br>
+        Os primeiros sinais que vêm do campo são preocupantes. As taxas de desmatamento no início de 2020, antes de surgir o alarme em torno da Covid-19, já indicavam uma atividade expressiva das motosserras. Segundo o DETER [...] em janeiro deste ano houve um aumento de 52% na área sob alertas de desmatamento em relação ao mesmo mês do ano anterior; em fevereiro, foi 25% superior ao mesmo mês de 2019. A crise dos incêndios de 2019, com repercussão mundial, estava ligada ao aumento do desmatamento e ainda está clara na memória.<br><br>
+        Como prevenção mínima, é preciso que o poder público mantenha os meios de monitoramento remoto na região [...]
+        <span class="fonte">GUIMARÃES; RAMOS; MOUTINHO. El País. Acesso em: 14 set. 2020.</span>
+      </div>
+      <p><strong>A tese de que a crise provocada pelo coronavírus aumentará o desmatamento amazônico é sustentada pelo argumento presente em:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">“Como prevenção mínima, é preciso que o poder público mantenha os meios de monitoramento remoto na região”.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">“A crise dos incêndios de 2019, com repercussão mundial, estava ligada ao aumento do desmatamento e ainda está clara na memória”.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">“As taxas de desmatamento no início de 2020, antes de surgir o alarme em torno da Covid-19, já indicavam uma atividade expressiva das motosserras”.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">“O correto foco das autoridades no controle da doença abre espaços para que oportunistas de plantão se sintam livres para grilar a terra pública e derrubar a floresta”.</div></div>
+  </div>
+</div>
+
+<!-- ========== BLOCO 4 MAT ========== -->
+<div class="section mat">BLOCO 4 · MATEMÁTICA</div>
+
+<div class="q" id="q37">
+  <div class="q-h">
+    <div class="q-n">37</div>
+    <div class="q-t">
+      <p>João, Maria e Antônio são irmãos.</p>
+      <p>Sabendo que João e Maria são gêmeos e que Antônio tinha 9 anos quando os gêmeos nasceram, <strong>qual a idade de Antônio se a soma das idades dos três irmãos hoje é 39 anos?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">19 anos</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">10 anos</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">20 anos</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">29 anos</div></div>
+  </div>
+</div>
+
+<div class="q" id="q38">
+  <div class="q-h">
+    <div class="q-n">38</div>
+    <div class="q-t">
+      <p>Uma motocicleta custava R$ 12.000,00 e sofreu um aumento de 15%.</p>
+      <p><strong>Qual é o novo preço?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">R$ 12.150,00</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">R$ 13.200,00</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">R$ 13.800,00</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">R$ 14.400,00</div></div>
+  </div>
+</div>
+
+<div class="q" id="q39">
+  <div class="q-h">
+    <div class="q-n">39</div>
+    <div class="q-t">
+      <p><strong>Calcule o valor da expressão: 2³ + 4²</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">20.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">24.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">28.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">32.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q40">
+  <div class="q-h">
+    <div class="q-n">40</div>
+    <div class="q-t">
+      <p>A Loja de Móveis “Casa Conforto” está oferecendo uma promoção onde todos os sofás recebem um desconto de 20% no preço original. Maria está interessada em comprar um sofá que custa R$ 1.500,00.</p>
+      <p><strong>Qual será o preço que Maria pagará pelo sofá após a aplicação do desconto?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">R$ 1.200,00.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">R$ 1.350,00.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">R$ 1.125,00.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">R$ 1.100,00.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q41">
+  <div class="q-h">
+    <div class="q-n">41</div>
+    <div class="q-t">
+      <p>A equipe de robótica arrecadou R$ 200,00 para dividir igualmente entre 8 alunos. Seja x o valor que cada aluno receberá.</p>
+      <p><strong>Qual equação representa a situação?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">8x = 200.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">x/8 = 200.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">200 = x + 8.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">x = 8 × 200.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q42">
+  <div class="q-h">
+    <div class="q-n">42</div>
+    <div class="q-t">
+      <div class="apoio">
+        Na cidade de Matematópolis tudo tem relação com a Matemática. A avenida principal tem as casas numeradas como em uma reta numérica. A prefeitura fica no número zero; as casas a oeste têm números negativos e as a leste, números positivos. A agência dos correios, a 50 metros a leste, tem o número +50; o cartório, a 40 metros a oeste, tem o número −40.<br><br>
+        Para ir do cartório ao posto de combustíveis, uma pessoa deve andar 60 metros para o leste.
+      </div>
+      <p><strong>Qual é o número desse posto de combustíveis?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">−100</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">−20</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">+20</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">+100</div></div>
+  </div>
+</div>
+
+<div class="q" id="q43">
+  <div class="q-h">
+    <div class="q-n">43</div>
+    <div class="q-t">
+      <p>Uma obra é concluída por 6 pedreiros em 20 dias. Se forem contratados 8 pedreiros, trabalhando no mesmo ritmo,</p>
+      <p><strong>em quantos dias a obra será concluída?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">15 dias</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">12 dias</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">20 dias</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">18 dias</div></div>
+  </div>
+</div>
+
+<div class="q" id="q44">
+  <div class="q-h">
+    <div class="q-n">44</div>
+    <div class="q-t">
+      <p>Carlos e Ana estão organizando suas figurinhas. Carlos possui 138 figurinhas a mais que Ana, que tem 245 figurinhas.</p>
+      <p><strong>Quantas figurinhas Carlos e Ana têm juntos?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">628.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">630.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">618.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">625.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q45">
+  <div class="q-h">
+    <div class="q-n">45</div>
+    <div class="q-t">
+      <p>Luana está organizando sua festa de casamento e pretende fazer um churrasco. Inicialmente, ela faria um churrasco de cinco horas para 150 pessoas e calculou que seriam necessários exatamente 60 kg de carne. Essa quantidade ficaria muito fora de seu orçamento, por isso Luana decidiu reduzir o tempo de duração do churrasco para três horas, mas manteve a quantidade de convidados.</p>
+      <p><strong>A quantidade de carne, em kg, necessária para esse churrasco será</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">12.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">36.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">90.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">100.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q46">
+  <div class="q-h">
+    <div class="q-n">46</div>
+    <div class="q-t">
+      <div class="apoio">
+        No Brasil, a temperatura é aferida na escala Celsius (°C). Nos Estados Unidos, na escala Fahrenheit (°F). Fórmula de conversão:<br><br>
+        <strong>T<sub>F</sub> = (T<sub>C</sub> × 9) / 5 + 32</strong>
+      </div>
+      <p><strong>Podemos afirmar que uma temperatura de 24 °C na escala Fahrenheit é:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">75,2 °F</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">248 °F</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">49,6 °F</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">−4,4 °F</div></div>
+  </div>
+</div>
+
+<div class="q" id="q47">
+  <div class="q-h">
+    <div class="q-n">47</div>
+    <div class="q-t">
+      <p>O gráfico mostra a quantidade de livros vendidos por uma livraria no 1º semestre.</p>
+      <div class="fig">[Gráfico de barras — Livros vendidos por mês:<br>Jan 120 · Fev 90 · Mar 150 · Abr 130 · Mai 110 · Jun 170]</div>
+      <p><strong>Qual foi o mês com maior número de vendas?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Março</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Abril</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Maio</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Junho</div></div>
+  </div>
+</div>
+
+<div class="q" id="q48">
+  <div class="q-h">
+    <div class="q-n">48</div>
+    <div class="q-t">
+      <p>Os retângulos da figura são semelhantes.</p>
+      <div class="fig">[Retângulo maior: 6,0 × 4,5 · Retângulo menor: 2,0 × 1,5]</div>
+      <p><strong>A razão da semelhança entre eles é</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">1/2</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">1/3</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">1/4</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">1/5</div></div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p><strong>Simulado SARESP 2026 · 9º ano EF · 1º dia</strong></p>
+  <p>Língua Portuguesa e Matemática · 48 questões</p>
+  <p style="margin-top:.5rem;">Marque as respostas exclusivamente no gabarito impresso.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) {
+      const y = t.getBoundingClientRect().top + window.pageYOffset - 170;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
