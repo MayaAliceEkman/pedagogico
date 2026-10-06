@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado SARESP 2026 – 9º ano | 2º dia</title>
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5c6670;
+  --border: #e5e7eb;
+  --accent: #1e3a5f;
+  --accent-soft: #e8eef5;
+  --eng: #1e3a5f;
+  --cie: #0f5c4c;
+  --his: #6b3a1e;
+  --geo: #1a4a6b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 15.5px;
+}
+.header {
+  background: var(--accent);
+  color: #fff;
+  padding: 1.6rem 1.2rem 1.3rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+.header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; }
+.header .sub { opacity: .9; font-size: .95rem; margin-top: .2rem; }
+.header .meta {
+  margin-top: .55rem;
+  font-size: .8rem;
+  opacity: .8;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: .65rem .8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  justify-content: center;
+  position: sticky;
+  top: 92px;
+  z-index: 90;
+  box-shadow: 0 1px 6px rgba(0,0,0,.04);
+}
+.nav a {
+  width: 2rem; height: 2rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: .75rem;
+  font-weight: 600;
+  transition: .15s;
+}
+.nav a:hover { background: var(--accent); color: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 1.4rem 1rem 3.5rem; }
+.instructions {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1.4rem;
+  font-size: .9rem;
+  color: #78350f;
+}
+.section {
+  margin: 1.8rem 0 1rem;
+  padding: .55rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.section.eng { background: var(--eng); }
+.section.cie { background: var(--cie); }
+.section.his { background: var(--his); }
+.section.geo { background: var(--geo); }
+.q {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.15rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.q-h {
+  display: flex;
+  gap: .75rem;
+  padding: 1rem 1.1rem .5rem;
+  align-items: flex-start;
+}
+.q-n {
+  flex-shrink: 0;
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.q-t { flex: 1; font-size: .95rem; }
+.q-t p { margin-bottom: .45rem; }
+.q-t strong { color: var(--accent); }
+.apoio {
+  background: #f8fafc;
+  border-left: 3px solid #94a3b8;
+  padding: .75rem .95rem;
+  margin: .55rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: .9rem;
+  color: #334155;
+}
+.apoio .fonte { display: block; margin-top: .4rem; font-size: .75rem; color: var(--muted); font-style: italic; }
+.vocab {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: .5rem .85rem;
+  margin: .5rem 0;
+  font-size: .85rem;
+  color: #475569;
+}
+.fig-img { margin: .6rem 0; text-align: center; }
+.fig-img img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e5e7eb; }
+.opts { padding: .3rem 1.1rem 1rem; }
+.opt {
+  display: flex;
+  gap: .65rem;
+  padding: .55rem .7rem;
+  border-radius: 8px;
+  margin-bottom: .28rem;
+  align-items: flex-start;
+}
+.opt:hover { background: #f1f5f9; }
+.opt-l {
+  flex-shrink: 0;
+  width: 1.55rem; height: 1.55rem;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: .8rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.opt-t { flex: 1; font-size: .92rem; padding-top: .1rem; }
+.footer {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  color: var(--muted);
+  font-size: .8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+@media print {
+  .header, .nav, .instructions { display: none; }
+  .q { break-inside: avoid; box-shadow: none; }
+}
+@media (max-width: 560px) {
+  .header h1 { font-size: 1.15rem; }
+  .nav { top: 100px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Simulado SARESP 2026</h1>
+  <div class="sub">9º ano do Ensino Fundamental · 2º dia</div>
+  <div class="meta">
+    <span>Língua Inglesa · Ciências · História · Geografia</span>
+    <span>40 questões</span>
+  </div>
+</header>
+
+<nav class="nav" id="nav">
+<a href="#q1">1</a>
+<a href="#q2">2</a>
+<a href="#q3">3</a>
+<a href="#q4">4</a>
+<a href="#q5">5</a>
+<a href="#q6">6</a>
+<a href="#q7">7</a>
+<a href="#q8">8</a>
+<a href="#q9">9</a>
+<a href="#q10">10</a>
+<a href="#q11">11</a>
+<a href="#q12">12</a>
+<a href="#q13">13</a>
+<a href="#q14">14</a>
+<a href="#q15">15</a>
+<a href="#q16">16</a>
+<a href="#q17">17</a>
+<a href="#q18">18</a>
+<a href="#q19">19</a>
+<a href="#q20">20</a>
+<a href="#q21">21</a>
+<a href="#q22">22</a>
+<a href="#q23">23</a>
+<a href="#q24">24</a>
+<a href="#q25">25</a>
+<a href="#q26">26</a>
+<a href="#q27">27</a>
+<a href="#q28">28</a>
+<a href="#q29">29</a>
+<a href="#q30">30</a>
+<a href="#q31">31</a>
+<a href="#q32">32</a>
+<a href="#q33">33</a>
+<a href="#q34">34</a>
+<a href="#q35">35</a>
+<a href="#q36">36</a>
+<a href="#q37">37</a>
+<a href="#q38">38</a>
+<a href="#q39">39</a>
+<a href="#q40">40</a>
+
+</nav>
+
+<div class="container">
+
+<div class="instructions">
+  <strong>Instruções:</strong> Leia com atenção cada questão. As respostas devem ser marcadas <strong>apenas no gabarito impresso</strong> (não neste dispositivo). Use a navegação acima para ir direto a qualquer questão.
+</div>
+
+<div class="section eng">BLOCO 1 · LÍNGUA INGLESA</div>
+
+<div class="q" id="q1">
+  <div class="q-h">
+    <div class="q-n">1</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Joel:</strong> Hey, Beatriz! Are you going to help me plan the surprise birthday party for Lucas?<br>
+        <strong>Beatriz:</strong> Of course, Joel! What are we going to do during the party?<br>
+        <strong>Joel:</strong> I think we're going to play some games and do karaoke.
+        <span class="fonte">Fonte: Material Digital Adaptado.</span>
+      </div>
+      <p><strong>O plano de Joel para o futuro é fazer:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Um passeio ao parque para andar de bicicleta e correr.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Uma festa surpresa para Lucas com jogos e karaokê.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Um espetáculo para Beatriz com a ajuda do Lucas.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Uma viagem de férias para apreciar a natureza.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q2">
+  <div class="q-h">
+    <div class="q-n">2</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Looking ahead</strong><br><br>
+        <strong>João:</strong> Hey, Bruna! What will you do in the future?<br>
+        <strong>Bruna:</strong> I think I will be a doctor. I want to help people.<br>
+        <strong>João:</strong> That's great! Will you work in a big hospital?<br>
+        <strong>Bruna:</strong> Yes, I will probably work in a hospital in my city.<br>
+        <strong>João:</strong> Nice! I think I will study engineering.
+        <span class="fonte">Elaborado pelo autor para fins didáticos.</span>
+      </div>
+      <p><strong>De acordo com o diálogo, o que João busca saber ao perguntar “Will you work in a big hospital?”?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Se Bruna já decidiu com certeza onde trabalhará no futuro.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Se Bruna pretende trabalhar em um grande hospital no futuro.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Se Bruna prefere trabalhar em hospital em vez de outras profissões.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Se Bruna já trabalhou como médica em um hospital na sua cidade.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q3">
+  <div class="q-h">
+    <div class="q-n">3</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Directions</strong><br><br>
+        <strong>Step 1</strong><br>
+        Preheat the oven to 325 degrees F (165 degrees C). Grease a 10-inch Bundt pan.<br><br>
+        <strong>Step 2</strong><br>
+        Make the cake: Stir cake mix and pudding mix together in a large bowl. Make a well in the center and pour in orange juice, oil, eggs, and lemon extract. Beat on low speed with an electric mixer until blended. Scrape the sides of the bowl, then beat on medium speed for 4 minutes. Pour batter into the prepared pan.<br><br>
+        <strong>Step 3</strong><br>
+        Bake in the preheated oven for 50 to 60 minutes. Let cool in pan for 10 minutes [...].
+        <span class="fonte">Disponível em: allrecipes.com. Acesso em: 12 dez. 2025.</span>
+      </div>
+      <p><strong>O texto apresenta instruções que visam</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">apresentar informações sobre ingredientes usados em diferentes tipos de bolos.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">descrever experiências pessoais relacionadas ao preparo de receitas caseiras.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">orientar o leitor por meio de etapas organizadas a preparar um bolo de laranja.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">explicar curiosidades sobre a história dos bolos e suas variações culturais.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q4">
+  <div class="q-h">
+    <div class="q-n">4</div>
+    <div class="q-t">
+      <div class="apoio">
+        <strong>Linda, the artist</strong><br><br>
+        Linda is my friend. She loves drawing and painting. Her artwork is always very colourful and full of details. Linda is very creative. She uses bright colours and interesting shapes in her drawings. She also has a great imagination and likes to create unusual scenes, with animals and magical places. She is very patient and attentive. When she draws, she spends a lot of time adding small details to her pictures. She also enjoys observing things around her, like parks, buildings, and nature. Linda is a cheerful person. Her art is bright and happy, and it makes people feel good. Many of her friends say that her drawings are fun and inspiring.
+        <span class="fonte">Disponível em: learnenglishkids.britishcouncil.org. Acesso em: 27 mar. 2026.</span>
+      </div>
+      <div class="vocab"><strong>Vocabulário:</strong> Bright: brilhante. Draw: desenhar.</div>
+      <p><strong>De acordo com o texto, Linda pode ser descrita como uma pessoa</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">desorganizada e distraída.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">criativa e detalhista.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">tímida e silenciosa.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">impaciente e desinteressada.</div></div>
+  </div>
+</div>
+
+<div class="section cie">BLOCO 2 · CIÊNCIAS</div>
+
+<div class="q" id="q5">
+  <div class="q-h">
+    <div class="q-n">5</div>
+    <div class="q-t">
+      <p>Ondas eletromagnéticas – como as de rádio, o infravermelho, o ultravioleta e os raios gama – compõem o espectro eletromagnético. Considerando suas propriedades no vácuo, <strong>assinale a única alternativa correta.</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">No espaço vazio, todas têm o mesmo comprimento de onda.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">No vácuo, todas exibem a mesma frequência.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">No vácuo, todas se propagam com a mesma velocidade.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">No vácuo, todas apresentam o mesmo período.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q6">
+  <div class="q-h">
+    <div class="q-n">6</div>
+    <div class="q-t">
+      <p>As bactérias são organismos procariontes. Mesmo sendo simples, as bactérias são muito importantes para o equilíbrio dos ecossistemas. <strong>O fato de as bactérias serem classificadas como procariontes significa que:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">elas têm núcleo verdadeiro e várias organelas membranosas.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">seu material genético está disperso no citoplasma, sem um núcleo definido.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">elas apresentam um núcleo organizado, mas não têm membrana plasmática.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">seu material genético está protegido dentro de um núcleo com membrana nuclear.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q7">
+  <div class="q-h">
+    <div class="q-n">7</div>
+    <div class="q-t">
+      <p><strong>Qual é o principal objetivo das Unidades de Conservação de Proteção Integral?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Possibilitar o uso sustentável de recursos naturais e atividades agrícolas.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Promover o turismo de massa e a exploração econômica de áreas preservadas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Garantir apenas a proteção de espécies animais, sem considerar o ambiente ao redor.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Assegurar a preservação total da biodiversidade, limitando o uso direto dos recursos naturais.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q8">
+  <div class="q-h">
+    <div class="q-n">8</div>
+    <div class="q-t">
+      <p>Por muitos séculos, o modelo geocêntrico foi aceito para explicar o funcionamento do Universo, no entanto novas observações e estudos levaram ao desenvolvimento do modelo heliocêntrico, transformando a forma como compreendemos os movimentos dos astros. Considerando esse processo histórico de construção do conhecimento científico, <strong>é correto afirmar que:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Aristóteles comprovou experimentalmente que a Terra está no centro do Universo.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Copérnico demonstrou que os planetas se movem em órbitas elípticas ao redor do Sol.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Ptolomeu substituiu o geocentrismo pelo heliocentrismo ao explicar o movimento retrógrado dos planetas.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Galileu fez observações com a luneta que mostraram que nem todos os astros giram em torno da Terra.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q9">
+  <div class="q-h">
+    <div class="q-n">9</div>
+    <div class="q-t">
+      <div class="apoio">
+        No Brasil, há cerca de quarenta espécies de pica-paus, distribuídas em diversos ambientes. Essas aves alimentam-se principalmente de frutas, formigas, larvas de abelha, cupins e vespas. Os pica-paus têm quatro dedos nos pés: dois para frente e dois para trás. Isso lhes confere agilidade e faz com que subam e desçam dos troncos com muita facilidade.
+        <span class="fonte">Ecológico, n. 26, nov. 2010 (adaptado).</span>
+      </div>
+      <p>O texto destaca uma característica física dos pica-paus. <strong>O formato dos pés dessas aves pode ser interpretado como uma adaptação, pois</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">foi exigido pelo ambiente.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">favorece a busca de alimentos.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">se relaciona com o desmatamento e outras ações humanas.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">ocorre em uma única espécie, que vive em um determinado ambiente.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q10">
+  <div class="q-h">
+    <div class="q-n">10</div>
+    <div class="q-t">
+      <p>Um casal sem condições biológicas de gerar filhos naturalmente, formado por Ana e Bruno, optou por uma técnica de fertilização in vitro. Foram utilizados óvulos de Ana e espermatozoides de um doador, Carlos, e a criança foi gerada em uma barriga solidária por Diana, que emprestou seu útero para gerá-la.</p>
+      <p><strong>O material genético dessa criança será composto pela combinação de genes de quais pessoas?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Ana e Bruno.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Diana e Carlos.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Diana e Bruno.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Ana e Carlos.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q11">
+  <div class="q-h">
+    <div class="q-n">11</div>
+    <div class="q-t">
+      <p><strong>Sobre os planetas do Sistema Solar, analise as afirmativas e assinale a correta.</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Os planetas gasosos são formados apenas por gases e não apresentam núcleo sólido.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Mercúrio, Vênus, Terra e Marte são considerados gasosos porque têm grandes massas e muitos anéis.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Os planetas rochosos têm superfícies sólidas e são compostos principalmente de rochas e metais.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Júpiter é um planeta rochoso e o maior do Sistema Solar.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q12">
+  <div class="q-h">
+    <div class="q-n">12</div>
+    <div class="q-t">
+      <div class="apoio">
+        Aprovada em 2010 pelo Congresso Nacional, a Política Nacional de Resíduos Sólidos exigia que as cidades brasileiras acabassem com seus lixões até agosto de 2014. Contudo, apenas 10% dos municípios que apresentam lixões conseguiram solucionar o problema.
+        <span class="fonte">HAJE, L. Disponível em: www2.camara.leg.br. Acesso em: 18 set. 2014 (adaptado).</span>
+      </div>
+      <p><strong>Um impacto ambiental decorrente do problema apontado é a</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">contaminação dos lençóis subterrâneos pelo chorume do lixo orgânico.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">poluição atmosférica por gases resultantes da incineração de material inorgânico.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">erosão do solo por ação de microrganismos patogênicos.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">liberação de gases que destroem a camada de ozônio.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q13">
+  <div class="q-h">
+    <div class="q-n">13</div>
+    <div class="q-t">
+      <p>A dessalinização da água do mar por exposição ao sol é um processo que pode ser utilizado na obtenção de água “doce”. Na primeira etapa desse processo, a água passa da fase líquida para a fase de vapor. Posteriormente, sofre condensação em um aparato, geralmente de vidro, retornando à fase líquida.</p>
+      <p><strong>Qual alternativa apresenta uma sequência de fenômenos semelhante à descrita no texto?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">A secagem de roupas no varal.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">A transpiração humana após uma corrida.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">A adição de água gelada em um copo de vidro.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">A tampa da panela de arroz em cozimento normal.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q14">
+  <div class="q-h">
+    <div class="q-n">14</div>
+    <div class="q-t">
+      <p>O ciclo da água pode sofrer interferência de algumas atividades humanas, podendo ocasionar enchentes.</p>
+      <p><strong>Entre as atividades que acentuam a ocorrência desse fenômeno está o(a)</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">plantio em curvas de nível, represando a água da chuva.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">construção de reservatórios, acumulando a água da chuva.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">retirada da cobertura vegetal, dificultando a absorção da água pelo solo.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">prática de cultivo entre a vegetação preexistente, diminuindo a absorção da água pelo solo.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q15">
+  <div class="q-h">
+    <div class="q-n">15</div>
+    <div class="q-t">
+      <div class="apoio">
+        Não é saudável resistir às transformações, pois isso significa estar em descompasso com o próprio tempo. Ao fenômeno no qual novos produtos ou processos extinguem sistemas, empresas e itens completos, o economista austríaco Joseph Schumpeter chamou de destruição criativa. Exemplos dessa extinção são os aparelhos de fax, as antigas agendas eletrônicas, as listas telefônicas de papel, dentre outros.
+        <span class="fonte">ALMEIDA, L. A. P. Disponível em: canaltech.com.br. Acesso em: 10 set. 2018 (adaptado).</span>
+      </div>
+      <p><strong>Esses exemplos de “destruição criativa” estão relacionados ao(à)</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">surgimento e popularização do uso da internet.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">baixa procura por aparelhos de fax e agendas eletrônicas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">desenvolvimento de redes de comunicação locais fechadas.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">dificuldade encontrada no uso das listas telefônicas de papel.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q16">
+  <div class="q-h">
+    <div class="q-n">16</div>
+    <div class="q-t">
+      <div class="apoio">
+        É prudente tratar a água da cisterna antes de usá-la, principalmente nos casos em que não se tem a garantia de que a cisterna é abastecida apenas por água de chuva, ou da potabilidade da água de carros-pipa, adotando-se a filtração e a desinfecção como métodos de tratamento. O processo de desinfecção mais comum é à base de cloro líquido. Recomenda-se filtrar a água e em seguida acrescentar 1 colher de chá de água sanitária para cada 20 litros de água; depois disso, misturar bem e, após 30 minutos, essa água poderá ser consumida.
+        <span class="fonte">Disponível em: www.cpatsa.embrapa.br. Acesso em: 28 ago. 2015 (adaptado).</span>
+      </div>
+      <p><strong>O benefício de usar essa solução nas águas de cisterna é:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Reduzir matéria orgânica.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Inativar toxinas de parasitas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Eliminar agentes biológicos.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Neutralizar substâncias nocivas.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q17">
+  <div class="q-h">
+    <div class="q-n">17</div>
+    <div class="q-t">
+      <p>Estrela-d’alva ou vespertina são nomes dados popularmente ao mesmo astro muito brilhante que aparece no céu relativamente próximo ao Sol, antes do amanhecer ou logo após o pôr do Sol.</p>
+      <p><strong>Esse astro aparece sempre nessas condições porque ele é um(a)</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">planeta cuja órbita em torno do Sol está depois da órbita da Terra.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">estrela que se move em torno do Sol, dentro do Sistema Solar.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">planeta cuja órbita está entre a órbita da Terra e o Sol.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">estrela posicionada fora do Sistema Solar.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q18">
+  <div class="q-h">
+    <div class="q-n">18</div>
+    <div class="q-t">
+      <p>Em uma avenida movimentada, um aluno mede 90 dB quando um caminhão passa e, em uma praça próxima, mede 60 dB durante uma conversa. Considerando que o som é uma onda mecânica e que a intensidade está relacionada à amplitude, <strong>assinale a alternativa correta.</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Ondas sonoras podem se propagar no vácuo, por isso o som do caminhão é ouvido mesmo com janelas fechadas.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">O som do caminhão (90 dB) transporta mais energia do que a conversa (60 dB), pois, quanto maior a amplitude, maior a intensidade, o que aumenta o risco de poluição sonora.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Por estar em decibéis, 90 dB são apenas 1,5 vez mais intensos que 60 dB.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Reduzir a amplitude não altera a intensidade sonora; apenas muda a frequência.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q19">
+  <div class="q-h">
+    <div class="q-n">19</div>
+    <div class="q-t">
+      <p>Denominam-se gêmeos dois ou mais irmãos que nascem de uma mesma gestação. Uma mãe deu à luz dois meninos idênticos, também chamados de gêmeos monozigóticos.</p>
+      <p><strong>Esses bebês foram gerados a partir de</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">um óvulo e um espermatozoide.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">dois óvulos e um espermatozoide.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">um óvulo e dois espermatozoides.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">dois óvulos e dois espermatozoides.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q20">
+  <div class="q-h">
+    <div class="q-n">20</div>
+    <div class="q-t">
+      <p>O combate ao mosquito transmissor do vírus da dengue é um problema de saúde pública no Brasil. O uso de inseticidas em larga escala é discutido com cautela pelos cientistas, no que se refere às questões biológicas.</p>
+      <p><strong>Essa cautela se justifica porque o uso de inseticidas</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">elimina o mosquito, e o vírus busca outro transmissor.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">induz mutações no vírus e gera resistência a medicamentos.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">seleciona mosquitos resistentes e torna esse combate ineficiente.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">aumenta a intensidade da infecção viral e agrava o quadro dos doentes.</div></div>
+  </div>
+</div>
+
+<div class="section his">BLOCO 3 · HISTÓRIA</div>
+
+<div class="q" id="q21">
+  <div class="q-h">
+    <div class="q-n">21</div>
+    <div class="q-t">
+      <p>No final do século XIX, o Brasil passou por profundas transformações políticas e sociais. A abolição da escravidão, em 1888, foi um marco importante, mas deixou muitas questões sociais sem resolução. <strong>Qual das alternativas melhor representa uma das principais contribuições das mobilizações sociais negras no Brasil republicano?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Lutaram pela inclusão dos negros no mercado de trabalho formal e pela criação de políticas de ações afirmativas.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Promoveram o retorno dos negros ao continente africano como forma de resistência cultural.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Contribuíram para a criação de um sistema de ensino público exclusivo para a população negra.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Estabeleceram alianças com partidos conservadores para manter a ordem social estabelecida.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q22">
+  <div class="q-h">
+    <div class="q-n">22</div>
+    <div class="q-t">
+      <p><strong>A Primeira Guerra do Ópio (1840–1842) teve como uma de suas consequências:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">a maior penetração do imperialismo inglês na China.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">o fechamento dos portos da China ao comércio ocidental.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">a eliminação da influência colonialista francesa na China.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">a queda do sistema de mandarinato na China.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q23">
+  <div class="q-h">
+    <div class="q-n">23</div>
+    <div class="q-t">
+      <div class="apoio">
+        Entre 1923 e 1928, as condições econômicas foram, em geral, excelentes, e um número crescente de consumidores podia adquirir o que antes eram artigos de luxo, como automóveis, telefones e eletrodomésticos. À medida que a indústria automobilística se convertia em setor líder da economia, a produção tornava-se cada vez mais dominada por umas poucas grandes empresas, cujas operações combinadas abarcavam extensa área geográfica.
+        <span class="fonte">Philip Jenkins. Breve história de Estados Unidos, 2017. Adaptado.</span>
+      </div>
+      <p><strong>O excerto descreve a situação histórica dos Estados Unidos, marcada pela:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">ampliação do mercado consumidor devido à produção industrial em grande escala.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">adoção de leis de proteção ao trabalho em um clima de otimismo social.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">desorganização da produção agrícola com o intenso êxodo rural.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">grande crise do capitalismo em decorrência da cartelização da economia.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q24">
+  <div class="q-h">
+    <div class="q-n">24</div>
+    <div class="q-t">
+      <div class="apoio">
+        Varre, varre, varre vassourinha!<br>
+        Varre, varre a bandalheira.<br>
+        Que o povo já está cansado<br>
+        De sofrer dessa maneira.<br>
+        Jânio Quadros é a esperança desse povo abandonado!<br>
+        Jânio Quadros é a certeza de um Brasil moralizado!<br>
+        Alerta, meu irmão!<br>
+        Vassoura, conterrâneo!<br>
+        Vamos vencer com Jânio!
+        <span class="fonte">FICO, C. História do Brasil contemporâneo. São Paulo: Contexto, 2015. p. 41.</span>
+      </div>
+      <p>O jingle da campanha eleitoral de Jânio Quadros “antecipou” algumas decisões que seriam tomadas em seu curto mandato presidencial. <strong>Escolha, entre as alternativas, a que melhor expressa o simbolismo da vassoura presente na canção.</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Aumento do número de cargos e dos gastos do governo.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Distanciamento entre os poderes Executivo e Legislativo.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Medidas moralizadoras e de combate à corrupção.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Atividade reguladora do Estado e fortalecimento dos sindicatos.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q25">
+  <div class="q-h">
+    <div class="q-n">25</div>
+    <div class="q-t">
+      <p>Em 15 de março de 1985, José Sarney, vice-presidente eleito na chapa encabeçada por Tancredo Neves, assumiu interinamente a presidência, pois o presidente eleito havia sido operado na noite anterior à posse.</p>
+      <p>Após várias cirurgias, Tancredo veio a falecer em 21 de abril de 1985 e Sarney assumiu oficialmente o cargo como primeiro presidente civil desde o golpe militar de 1964, governando o país até 15 de março de 1990. <strong>Em seu governo, o Estado brasileiro viveu cinco anos em que:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">tanto a economia quanto a política avançaram a passos largos devido à ótima condição em que os governos militares entregaram o país.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">a inflação herdada do período militar continuou alta, apesar dos vários planos econômicos implementados no período.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">foram feitas várias tentativas de cumprir a promessa de Tancredo Neves de convocar uma assembleia constituinte, contudo a promulgação da nova constituição só ocorreu no governo seguinte.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">as eleições continuaram a ser realizadas de forma indireta, por meio do colégio eleitoral, mesmo com o fim da ditadura militar.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q26">
+  <div class="q-h">
+    <div class="q-n">26</div>
+    <div class="q-t">
+      <div class="apoio">
+        A educação militar fazia parte de toda uma estrutura de ensino que visava formar o “novo homem” através de uma educação integral que envolvia o lado psicológico, físico e social. No começo do governo, as aulas de educação física se converteram no cenário ideal para preparar os corpos e as mentes dos jovens para o espírito guerreiro.
+        <span class="fonte">ROSA, Cristina Souza. Pequenos soldados do Fascismo... Antíteses, vol. 2, n. 4, 2009.</span>
+      </div>
+      <p><strong>A educação de crianças e jovens, como a implementada pelo governo fascista na Itália (1922-1943), tinha por objetivo formar cidadãos:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">apoiadores do socialismo e do movimento operário.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">defensores das inovações modernistas e da emancipação feminina.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">simpatizantes da democracia e das liberdades individuais.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">adeptos do nacionalismo e da subordinação hierárquica.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q27">
+  <div class="q-h">
+    <div class="q-n">27</div>
+    <div class="q-t">
+      <div class="apoio">
+        Era uma vez um país, uma cidade, uma praça, algumas mães... Las Madres de Plaza de Mayo! Silenciosas, com lenços brancos na cabeça, rondavam a Praça de Maio. Incansáveis, caminharam por dias, meses, anos. Foram chamadas de loucas. Em silêncio, criaram um fato político, escancaram as entranhas da repressão, desafiaram o aparato militar e suas dores ecoaram pelo mundo. [...] Era impossível ignorá-las, estavam lá, sempre em silêncio, mas estavam lá.
+        <span class="fonte">GONÇALVES, R. Lutas Sociais, n. 29, jul.-dez. 2012.</span>
+      </div>
+      <p><strong>Qual problema de âmbito nacional argentino o movimento social mencionado expôs ao mundo?</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">Violação dos direitos humanos.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">Insegurança da juventude periférica.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">Naturalização da violência doméstica.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">Ampliação das desigualdades sociais.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q28">
+  <div class="q-h">
+    <div class="q-n">28</div>
+    <div class="q-t">
+      <div class="fig-img"><img src="data:image/jpeg;base64,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" alt="Tirinha Calvin - etiquetas na camiseta" loading="lazy"></div>
+      <p><strong>A tirinha faz referência a uma realidade típica da globalização, representada pelo(a):</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">disputa por novos mercados.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">emprego de novas tecnologias.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">aumento do consumo de massa.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">transnacionalização da produção.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q29">
+  <div class="q-h">
+    <div class="q-n">29</div>
+    <div class="q-t">
+      <p><strong>Sobre o Tenentismo ocorrido no Brasil durante a República Velha (1889–1930), é correto afirmar:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">foi um movimento de caráter paramilitar que possuía uma ideologia eminentemente comunista.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">constituiu-se num grupo de jovens anarquistas que propunha uma sociedade sem classes ou qualquer tipo de poder dominador.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">foi um movimento político-militar da jovem oficialidade do Exército Brasileiro, que se rebelou contra as condições econômicas, sociais, políticas e institucionais então vigentes no país.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">representou uma rebelião ocorrida entre os jovens oficiais da Marinha Brasileira contra os castigos corporais e as péssimas condições de trabalho nos navios da frota nacional.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q30">
+  <div class="q-h">
+    <div class="q-n">30</div>
+    <div class="q-t">
+      <div class="apoio">
+        Primo Levi, um judeu que era contra o fascismo, foi preso em 1943 e enviado para o campo de concentração de Auschwitz. Na entrada do campo, havia uma frase: “O trabalho liberta”, e ele percebeu que aquele lugar era terrível, como um “inferno”.<br><br>
+        Durante a Segunda Guerra Mundial, os nazistas criaram campos de concentração em vários países da Europa. Auschwitz, na Polônia, era um dos maiores. As pessoas que os nazistas consideravam inimigas eram enviadas para esses campos.
+        <span class="fonte">WEINRICH, H. Lete: arte e crítica do esquecimento. Rio de Janeiro: Civilização Brasileira, 2001. Adaptado.</span>
+      </div>
+      <p><strong>A frase “O trabalho liberta” fazia parte da estratégia nazista para:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">treinar os judeus para o trabalho.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">controlar pesquisas sobre produtividade.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">eliminar apenas os trabalhadores que não produziam.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">explorar a mão de obra dos prisioneiros.</div></div>
+  </div>
+</div>
+
+<div class="section geo">BLOCO 4 · GEOGRAFIA</div>
+
+<div class="q" id="q31">
+  <div class="q-h">
+    <div class="q-n">31</div>
+    <div class="q-t">
+      <p>O Oriente Médio é estratégico devido a sua posição geográfica, fazendo divisa com o continente europeu e africano. Possui uma diversidade de povos e línguas, com predominância da população de:</p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">árabes.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">persas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">curdos.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">judeus.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q32">
+  <div class="q-h">
+    <div class="q-n">32</div>
+    <div class="q-t">
+      <div class="apoio">
+        A Argentina busca novo empréstimo com o Fundo Monetário Internacional (FMI) – no valor de US$ 20 bilhões – para, segundo o governo de Javier Milei, reforçar as reservas do Banco Central (BC) do país. Para críticos, a medida busca evitar o crescimento da inflação por falta de dólares. Ao longo da sua história, a Argentina já realizou 23 empréstimos com o FMI.
+        <span class="fonte">LEÓN, L. P. Agência Brasil, mar. 2025.</span>
+      </div>
+      <p><strong>A instituição tratada no texto atua no cenário global:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">regulando o comércio entre os países.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">oferecendo recursos a Estados em crise.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">financiando projetos na área da educação.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">estabelecendo metas na área da saúde.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q33">
+  <div class="q-h">
+    <div class="q-n">33</div>
+    <div class="q-t">
+      <div class="apoio">
+        A chamada Questão Palestina tem se constituído no mais persistente foco de tensão no Oriente Médio. Ela se refere à luta de dois povos, o judeu e o árabe-palestino, pela posse de uma área sobre a qual ambos julgam ter direitos históricos ou adquiridos. Por estar localizada numa espécie de encruzilhada entre as civilizações árabe-islâmica e ocidental, a região passou por vários domínios.
+        <span class="fonte">OLIC, N. B.; CANEPA, B. Oriente Médio e a Questão Palestina. São Paulo: Moderna, 2003. Adaptado.</span>
+      </div>
+      <p><strong>A motivação central do conflito entre esses dois povos, a partir do século XX, é a:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">rivalidade étnica.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">diferença cultural.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">disputa territorial.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">intolerância religiosa.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q34">
+  <div class="q-h">
+    <div class="q-n">34</div>
+    <div class="q-t">
+      <div class="apoio">
+        Um conjunto de programas de investimentos chineses, principalmente na área de infraestrutura, que passa pela internacionalização de grandes grupos empresariais que financiam grandes projetos em parcerias com outras nações. Essa é a Nova Rota da Seda, iniciativa chinesa que teve início em 2013, com a ascensão de Xi Jinping.
+        <span class="fonte">Exame, nov. 2024.</span>
+      </div>
+      <p><strong>A iniciativa tratada no texto apresenta impactos ambientais porque:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">afeta os rios chineses para a produção de energia.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">investe na exploração de petróleo em lugares diversos.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">realiza obras de infraestrutura somente na China continental.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">prevê a construção de ferrovias e rodovias em diferentes nações.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q35">
+  <div class="q-h">
+    <div class="q-n">35</div>
+    <div class="q-t">
+      <div class="apoio">
+        Saudado por centenas de militantes de movimentos sociais de quarenta países, o Papa Francisco encerrou no dia 09/07/2015 o 2º Encontro Mundial dos Movimentos Populares, em Santa Cruz de La Sierra, na Bolívia. Segundo ele, a “globalização da esperança, que nasce dos povos e cresce entre os pobres, deve substituir esta globalização da exclusão e da indiferença”.
+        <span class="fonte">Disponível em: cartamaior.com.br. Acesso em: 15 jul. 2015 (adaptado).</span>
+      </div>
+      <p><strong>No texto há uma crítica ao seguinte aspecto do mundo globalizado:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">liberdade política.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">mobilidade humana.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">conectividade cultural.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">disparidade econômica.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q36">
+  <div class="q-h">
+    <div class="q-n">36</div>
+    <div class="q-t">
+      <div class="apoio">
+        A Segunda Revolução Industrial, no final do século XIX e início do século XX, nos EUA, período em que a eletricidade passou gradativamente a fazer parte do cotidiano das cidades e a alimentar os motores das fábricas, caracterizou-se pela administração científica do trabalho e pela produção em série.
+        <span class="fonte">MERLO, A. R. C.; LAPIS, N. L. Psicologia e Sociedade, n. 1, abr. 2007.</span>
+      </div>
+      <p><strong>De acordo com o texto, na primeira metade do século XX, o capitalismo produziu um novo espaço geoeconômico e uma revolução que está relacionada com a:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">proliferação de pequenas e médias empresas, que se equiparam com as novas tecnologias e aumentaram a produção, com aporte do grande capital.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">técnica de produção fordista, que instituiu a divisão e a hierarquização do trabalho, em que cada trabalhador realizava apenas uma etapa do processo produtivo.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">passagem do sistema de produção artesanal para o sistema de produção fabril, concentrando-se, unicamente, na produção têxtil destinada ao mercado interno.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">independência política das nações colonizadas, que permitiu igualdade nas relações econômicas entre os países produtores de matérias-primas e os países industrializados.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q37">
+  <div class="q-h">
+    <div class="q-n">37</div>
+    <div class="q-t">
+      <div class="apoio">
+        O porto de Roterdã é porta de entrada e saída de mercadorias no continente europeu: só no primeiro semestre de 2018, passaram pela área 232,8 milhões de toneladas.
+        <span class="fonte">PACHECO, P. Estado de Minas, set. 2018.</span>
+      </div>
+      <p><strong>O porto tratado no texto funciona como um fator locacional de atração para:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">áreas de pastoreio.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">unidades industriais.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">sedes de grandes bancos.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">empreendimentos agrícolas.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q38">
+  <div class="q-h">
+    <div class="q-n">38</div>
+    <div class="q-t">
+      <div class="apoio">
+        Líderes do fórum da Cooperação Econômica Ásia-Pacífico (Apec) prometeram, em 19 de novembro de 2022, manter e fortalecer regras de um sistema comercial multilateral, enquanto a maioria deles condenou a guerra da Rússia na Ucrânia.
+        <span class="fonte">REUTERS / g1, 19 nov. 2022.</span>
+      </div>
+      <p><strong>O fórum de cooperação econômica tratado no texto é importante para a Oceania porque:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">aumenta a integração econômica com outros continentes.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">intensifica a posição australiana de economia influente.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">permite a livre circulação de pessoas entre os países.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">facilita a importação de carvão mineral pela Austrália.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q39">
+  <div class="q-h">
+    <div class="q-n">39</div>
+    <div class="q-t">
+      <div class="apoio">
+        A Austrália fechou um acordo em que se compromete a oferecer refúgio aos moradores do arquipélago de Tuvalu, ameaçado pela elevação do nível do mar. O território é formado por 9 ilhas de relevo baixo, localizado no Oceano Pacífico, entre a Austrália e o Havaí, e tem 11 mil habitantes.
+        <span class="fonte">g1, nov. 2023.</span>
+      </div>
+      <p><strong>Além do exemplo do texto, outro motivo que leva os habitantes da Oceania a pedir refúgio ambiental é a(o):</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">escassez hídrica.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">falta de florestas.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">biodiversidade baixa.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">ausência de minerais.</div></div>
+  </div>
+</div>
+
+<div class="q" id="q40">
+  <div class="q-h">
+    <div class="q-n">40</div>
+    <div class="q-t">
+      <div class="apoio">
+        O cidadão norte-americano desperta num leito construído segundo padrão originário do Oriente Próximo, mas modificado na Europa Setentrional antes de ser transmitido à América. Sai debaixo de cobertas feitas de algodão cuja planta se tornou doméstica na Índia. No restaurante, toda uma série de elementos tomada de empréstimo o espera. O prato é feito de uma espécie de cerâmica inventada na China. A faca é de aço, liga feita pela primeira vez na Índia do Sul; o garfo é inventado na Itália medieval; a colher vem de um original romano. Lê notícias do dia impressas em caracteres inventados pelos antigos semitas, em material inventado na China e por um processo inventado na Alemanha.
+        <span class="fonte">LINTON, R. O homem: uma introdução à antropologia. São Paulo: Martins, 1959. Adaptado.</span>
+      </div>
+      <p><strong>A situação descrita é um exemplo de como os costumes resultam da:</strong></p>
+    </div>
+  </div>
+  <div class="opts">
+    <div class="opt"><div class="opt-l">A</div><div class="opt-t">assimilação de valores de povos exóticos.</div></div>
+    <div class="opt"><div class="opt-l">B</div><div class="opt-t">experimentação de hábitos sociais variados.</div></div>
+    <div class="opt"><div class="opt-l">C</div><div class="opt-t">recuperação de heranças da Antiguidade Clássica.</div></div>
+    <div class="opt"><div class="opt-l">D</div><div class="opt-t">fusão de elementos de tradições culturais diferentes.</div></div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <p><strong>Simulado SARESP 2026 · 9º ano EF · 2º dia</strong></p>
+  <p>Língua Inglesa · Ciências · História · Geografia · 40 questões</p>
+  <p style="margin-top:.5rem;">Marque as respostas exclusivamente no gabarito impresso.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) {
+      const y = t.getBoundingClientRect().top + window.pageYOffset - 170;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
